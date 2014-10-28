@@ -17,7 +17,10 @@
     CCHmac(kCCHmacAlgSHA1, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
     
     NSData *HMAC = [[NSData alloc] initWithBytes:cHMAC length:sizeof(cHMAC)];
-    return [HMAC base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    
+    NSString *hash = [HMAC base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    
+    return hash;
 }
 
 @end

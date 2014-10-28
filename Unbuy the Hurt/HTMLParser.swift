@@ -39,14 +39,12 @@ class HTMLParser: NSObject {
     }
     
     func parseHTML() {
-    
         if let cache : Dictionary<String, AnyObject> = cachedResuts() as? Dictionary<String,AnyObject> {
             // TODO: bust cache
             self.delegate?.didFinishParsingHTML(cache)
         } else {
             let data = self.fetchAndParseHTML()
             self.cacheResults(data)
-            
             self.delegate?.didFinishParsingHTML(data)
         }
     }
@@ -72,7 +70,10 @@ class HTMLParser: NSObject {
                     let headerNode : NSArray = firstChild.children as NSArray
                     if let header : TFHppleElement = headerNode.firstObject as? TFHppleElement {
                         if header.content != nil {
-                            headers.append(header.content as NSString)
+                            let str = header.content.sterilize()
+                            if !str.isEmpty {
+                                headers.append(str)
+                            }
                         }
                     }
                 }
@@ -92,7 +93,10 @@ class HTMLParser: NSObject {
                 let attributes = firstChild.attributes
                 if attributes.isEmpty {
                     if firstChild.content != nil {
-                        brands.append(firstChild.content as NSString)
+                        let str = firstChild.content.sterilize()
+                        if !str.isEmpty {
+                            brands.append(str)
+                        }
                     }
                 }
             }
@@ -102,7 +106,6 @@ class HTMLParser: NSObject {
     
     private func cacheResults(data: Dictionary<String, AnyObject>) {
         let written = (data as NSDictionary).writeToFile(filePath(), atomically: true)
-        println(written)
     }
     
     private func cachedResuts() -> NSDictionary? {
@@ -115,5 +118,4 @@ class HTMLParser: NSObject {
         let destinationPath = documentsPath.stringByAppendingPathComponent("cache.json")
         return destinationPath
     }
-    
 }

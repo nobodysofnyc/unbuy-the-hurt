@@ -10,9 +10,9 @@ import UIKit
 
 class ViewController: UIViewController, ScanditSDKOverlayControllerDelegate, BarcodeHandlerDelegate, HTMLParserDelegate, UIAlertViewDelegate {
     
-    typealias BarcodeResult = (brandName: NSString?, companyName: NSString?)
-    
     let parser : HTMLParser = HTMLParser()
+    
+    let testing = true
     
     let scanner = ScanditSDKBarcodePicker(appKey: "synwen4yKux/jyTZR23VcUEb/f8lkwcDBU4ifYuDnRk")
     
@@ -31,17 +31,17 @@ class ViewController: UIViewController, ScanditSDKOverlayControllerDelegate, Bar
     }
     
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        setup()
+    }
+    
+    func setup() {
         setupBarcodePicker()
+        setupSettings()
     }
     
-    func setupBarcodePicker() {
-        self.scanner.overlayController.delegate = self
-        self.scanner.startScanning()
-        self.presentViewController(self.scanner, animated: true, completion: nil)
-    }
-    
-    func handleBarcode(code: String) {
-        barcodeHandler.handleBarcode(code)
+    private func setupSettings() {
     }
     
     private func youFucked(message: String) {
@@ -52,78 +52,95 @@ class ViewController: UIViewController, ScanditSDKOverlayControllerDelegate, Bar
         showAlert("NOT TESTED", message: message)
     }
     
+    func handleBarcode(code: String) {
+        barcodeHandler.handleBarcode(code)
+    }
+    
     private func showAlert(title: String, message: String) {
         let alert = UIAlertView(title: title, message: message, delegate: self, cancelButtonTitle: "Dismiss")
         alert.show()
     }
     
+    private func setupBarcodePicker() {
+        if testing {
+            self.handleBarcode("732913228546")
+        } else {
+            self.scanner.overlayController.delegate = self
+            self.scanner.startScanning()
+            self.presentViewController(self.scanner, animated: true, completion: nil)
+        }
+    }
+    
+    private func stopScanning() {
+        if !testing {
+            self.scanner.stopScanning()
+        }
+    }
+    
     // MARK: Delegate - BarcodeHandlerDelegate
     
-    func didReceiveBarcodeInformation(info: (brand: NSString?, company: NSString?)) {
-        self.scanner.stopScanning()
-        self.barcodeResult = info as BarcodeResult
+    func didReceiveBarcodeInformation(info: BarcodeResult) {
+        stopScanning()
+        self.barcodeResult = info
         parser.parseHTML()
+    }
+    
+    func didFailToReceiveBarcodeInformationWithError(errorMessage: String?) {
+        stopScanning()
+        
+        if let error = errorMessage {
+            self.showAlert("Uh oh", message: error)
+        } else {
+            self.showAlert("Uh oh", message: "There was a problem finding this product")
+        }
     }
     
     // MARK: Delegate - HTMLParserDelegate
     
     func didFinishParsingHTML(data: Dictionary<String, AnyObject>) {
         var tested = false
-        let companies = data["companies"] as NSArray
-        let brands = data["brands"] as NSArray!
+        let companies = data["companies"] as Array<String>
+        let brands = data["brands"] as Array<String>
         var message : String = ""
         
-        if let b = self.barcodeResult.brandName {
-            message += "\(b) \n"
+        var brandName = ""
+        if let brand = self.barcodeResult.brandName {
+            brandName = brand
+            message += "\(brandName) \n"
         }
-        if let c = self.barcodeResult.companyName {
-            message += "\(c)"
+        
+        var companyName = ""
+        if let company = self.barcodeResult.companyName {
+            companyName = company
+            message += companyName
         }
 
-        // Optimize this by using a dictionary with brand/company keys
-        if let brandName = self.barcodeResult.brandName {
-            for i in 0...(brands.count - 1) {
-                let name : NSString = (brands.objectAtIndex(i) as NSString).lowercaseString
-                let brand : NSString = brandName.lowercaseString as NSString
-                if brand == name {
+        for i in 0...(brands.count - 1) {
+            let name: String = brands[i] as String
+            if companyName == "lysolbrand" {
+                companyName = "lysol"
+            }
+            println(companyName)
+            println("\(name) \n")
+            if brandName == name || companyName == name {
+                tested = true
+                break
+            }
+        }
+        
+        if !tested {
+            for i in 0...(companies.count - 1) {
+                let name: String = companies[i] as String
+                if companyName == "colgatepalmoliveco" {
+                    companyName = "colgatepalmolive"
+                }
+                if brandName == name || companyName == name {
                     tested = true
                     break
                 }
             }
         }
-        if let companyName = self.barcodeResult.companyName {
-            if !tested {
-                for i in 0...(companies.count - 1) {
-                    let name : NSString = (companies.objectAtIndex(i) as NSString).lowercaseString
-                    var company : NSString = companyName.lowercaseString as NSString
-                    println(company)
-                    
-                    // begin the shit
-                    if company == "p & g" {
-                        company = "procter & gamble"
-                    }
-                    if company == "colgate-palmolive company" {
-                        company = "colgate-palmolive"
-                    }
-                    if company == "henkel company" {
-                        company = "henkel"
-                    }
-                    if company == "the clorox pet products company" {
-                        company = "the clorox company"
-                    }
-                    if company == "reckitt benckiser inc." {
-                        company = "reckitt benckiser"
-                    }
-                    // end the shit
-                    
-                    if company == name {
-                        tested = true
-                        break;
-                    }
-                }
-            }
-        }
-        
+
         if tested {
             youFucked(message)
         } else {
@@ -152,7 +169,9 @@ class ViewController: UIViewController, ScanditSDKOverlayControllerDelegate, Bar
     // MARK: Delegate - UIAlertViewDelegate
     
     func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
-        self.scanner.startScanning()
+        if !testing {
+            self.scanner.startScanning()
+        }
     }
 
 }

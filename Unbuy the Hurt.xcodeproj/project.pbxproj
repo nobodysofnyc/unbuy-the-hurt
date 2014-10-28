@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		271E4B8419FDEA8C0089B0F2 /* BarcodeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271E4B8319FDEA8C0089B0F2 /* BarcodeHandler.swift */; };
+		2725A1971A002519003F06C1 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2725A1961A002519003F06C1 /* String.swift */; };
+		2725A1991A0030F1003F06C1 /* OutPanAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2725A1981A0030F1003F06C1 /* OutPanAPIHandler.swift */; };
+		2725A19B1A00346B003F06C1 /* DigitEyesAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2725A19A1A00346B003F06C1 /* DigitEyesAPIHandler.swift */; };
+		2725A19E1A0034AB003F06C1 /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2725A19D1A0034AB003F06C1 /* NSString+SHA1.m */; };
 		273A418F19FED42300D654F2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 273A418D19FED42300D654F2 /* Crashlytics.framework */; };
 		273A419019FED42400D654F2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 273A418E19FED42300D654F2 /* Fabric.framework */; };
 		2768046319FDDB090019629D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768046219FDDB090019629D /* AppDelegate.swift */; };
@@ -16,7 +20,6 @@
 		2768046A19FDDB090019629D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2768046919FDDB090019629D /* Images.xcassets */; };
 		2768046D19FDDB090019629D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2768046B19FDDB090019629D /* LaunchScreen.xib */; };
 		2768047919FDDB090019629D /* Unbuy_the_HurtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768047819FDDB090019629D /* Unbuy_the_HurtTests.swift */; };
-		27F4A45119FE8E2A00084411 /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F4A45019FE8E2A00084411 /* NSString+SHA1.m */; };
 		27F4A45319FE9AAC00084411 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F4A45219FE9AAC00084411 /* HTMLParser.swift */; };
 		A67E5484B649B78B8E25E1A5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F19FBEDFF33910643277D0C /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -33,6 +36,11 @@
 
 /* Begin PBXFileReference section */
 		271E4B8319FDEA8C0089B0F2 /* BarcodeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeHandler.swift; sourceTree = "<group>"; };
+		2725A1961A002519003F06C1 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		2725A1981A0030F1003F06C1 /* OutPanAPIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutPanAPIHandler.swift; sourceTree = "<group>"; };
+		2725A19A1A00346B003F06C1 /* DigitEyesAPIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitEyesAPIHandler.swift; sourceTree = "<group>"; };
+		2725A19C1A0034AB003F06C1 /* NSString+SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA1.h"; sourceTree = "<group>"; };
+		2725A19D1A0034AB003F06C1 /* NSString+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA1.m"; sourceTree = "<group>"; };
 		273A418D19FED42300D654F2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		273A418E19FED42300D654F2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		2768045D19FDDB090019629D /* Unbuy the Hurt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unbuy the Hurt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,8 +54,6 @@
 		2768047719FDDB090019629D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2768047819FDDB090019629D /* Unbuy_the_HurtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unbuy_the_HurtTests.swift; sourceTree = "<group>"; };
 		2768048419FDDC7E0019629D /* Unbuy the Hurt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Unbuy the Hurt-Bridging-Header.h"; sourceTree = "<group>"; };
-		27F4A44F19FE8E2A00084411 /* NSString+SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA1.h"; sourceTree = "<group>"; };
-		27F4A45019FE8E2A00084411 /* NSString+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA1.m"; sourceTree = "<group>"; };
 		27F4A45219FE9AAC00084411 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
 		4F19FBEDFF33910643277D0C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AF91147CEDB5174B6CE479A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -102,13 +108,16 @@
 				2768046419FDDB090019629D /* ViewController.swift */,
 				271E4B8319FDEA8C0089B0F2 /* BarcodeHandler.swift */,
 				27F4A45219FE9AAC00084411 /* HTMLParser.swift */,
+				2725A1981A0030F1003F06C1 /* OutPanAPIHandler.swift */,
+				2725A19A1A00346B003F06C1 /* DigitEyesAPIHandler.swift */,
 				2768046619FDDB090019629D /* Main.storyboard */,
 				2768046919FDDB090019629D /* Images.xcassets */,
 				2768046B19FDDB090019629D /* LaunchScreen.xib */,
-				2768046019FDDB090019629D /* Supporting Files */,
 				2768048419FDDC7E0019629D /* Unbuy the Hurt-Bridging-Header.h */,
-				27F4A44F19FE8E2A00084411 /* NSString+SHA1.h */,
-				27F4A45019FE8E2A00084411 /* NSString+SHA1.m */,
+				2725A19C1A0034AB003F06C1 /* NSString+SHA1.h */,
+				2725A19D1A0034AB003F06C1 /* NSString+SHA1.m */,
+				2725A1961A002519003F06C1 /* String.swift */,
+				2768046019FDDB090019629D /* Supporting Files */,
 			);
 			path = "Unbuy the Hurt";
 			sourceTree = "<group>";
@@ -307,9 +316,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2768046519FDDB090019629D /* ViewController.swift in Sources */,
-				27F4A45119FE8E2A00084411 /* NSString+SHA1.m in Sources */,
+				2725A19B1A00346B003F06C1 /* DigitEyesAPIHandler.swift in Sources */,
+				2725A19E1A0034AB003F06C1 /* NSString+SHA1.m in Sources */,
 				2768046319FDDB090019629D /* AppDelegate.swift in Sources */,
+				2725A1971A002519003F06C1 /* String.swift in Sources */,
 				271E4B8419FDEA8C0089B0F2 /* BarcodeHandler.swift in Sources */,
+				2725A1991A0030F1003F06C1 /* OutPanAPIHandler.swift in Sources */,
 				27F4A45319FE9AAC00084411 /* HTMLParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
