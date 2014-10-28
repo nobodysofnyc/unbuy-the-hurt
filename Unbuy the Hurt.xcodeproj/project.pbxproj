@@ -12,6 +12,8 @@
 		2725A1991A0030F1003F06C1 /* OutPanAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2725A1981A0030F1003F06C1 /* OutPanAPIHandler.swift */; };
 		2725A19B1A00346B003F06C1 /* DigitEyesAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2725A19A1A00346B003F06C1 /* DigitEyesAPIHandler.swift */; };
 		2725A19E1A0034AB003F06C1 /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2725A19D1A0034AB003F06C1 /* NSString+SHA1.m */; };
+		2725A1A01A003A95003F06C1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2725A19F1A003A95003F06C1 /* Colors.swift */; };
+		2725A1A31A003EA5003F06C1 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2725A1A21A003EA5003F06C1 /* ResultsView.swift */; };
 		273A418F19FED42300D654F2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 273A418D19FED42300D654F2 /* Crashlytics.framework */; };
 		273A419019FED42400D654F2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 273A418E19FED42300D654F2 /* Fabric.framework */; };
 		2768046319FDDB090019629D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768046219FDDB090019629D /* AppDelegate.swift */; };
@@ -41,6 +43,8 @@
 		2725A19A1A00346B003F06C1 /* DigitEyesAPIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitEyesAPIHandler.swift; sourceTree = "<group>"; };
 		2725A19C1A0034AB003F06C1 /* NSString+SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA1.h"; sourceTree = "<group>"; };
 		2725A19D1A0034AB003F06C1 /* NSString+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA1.m"; sourceTree = "<group>"; };
+		2725A19F1A003A95003F06C1 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		2725A1A21A003EA5003F06C1 /* ResultsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		273A418D19FED42300D654F2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		273A418E19FED42300D654F2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		2768045D19FDDB090019629D /* Unbuy the Hurt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unbuy the Hurt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +85,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2725A1A11A003D8D003F06C1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2768046619FDDB090019629D /* Main.storyboard */,
+				2768046B19FDDB090019629D /* LaunchScreen.xib */,
+				2768046919FDDB090019629D /* Images.xcassets */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		2768045419FDDB090019629D = {
 			isa = PBXGroup;
 			children = (
@@ -110,13 +124,13 @@
 				27F4A45219FE9AAC00084411 /* HTMLParser.swift */,
 				2725A1981A0030F1003F06C1 /* OutPanAPIHandler.swift */,
 				2725A19A1A00346B003F06C1 /* DigitEyesAPIHandler.swift */,
-				2768046619FDDB090019629D /* Main.storyboard */,
-				2768046919FDDB090019629D /* Images.xcassets */,
-				2768046B19FDDB090019629D /* LaunchScreen.xib */,
+				2725A1A21A003EA5003F06C1 /* ResultsView.swift */,
+				2725A1A11A003D8D003F06C1 /* UI */,
 				2768048419FDDC7E0019629D /* Unbuy the Hurt-Bridging-Header.h */,
 				2725A19C1A0034AB003F06C1 /* NSString+SHA1.h */,
 				2725A19D1A0034AB003F06C1 /* NSString+SHA1.m */,
 				2725A1961A002519003F06C1 /* String.swift */,
+				2725A19F1A003A95003F06C1 /* Colors.swift */,
 				2768046019FDDB090019629D /* Supporting Files */,
 			);
 			path = "Unbuy the Hurt";
@@ -316,7 +330,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2768046519FDDB090019629D /* ViewController.swift in Sources */,
+				2725A1A01A003A95003F06C1 /* Colors.swift in Sources */,
 				2725A19B1A00346B003F06C1 /* DigitEyesAPIHandler.swift in Sources */,
+				2725A1A31A003EA5003F06C1 /* ResultsView.swift in Sources */,
 				2725A19E1A0034AB003F06C1 /* NSString+SHA1.m in Sources */,
 				2768046319FDDB090019629D /* AppDelegate.swift in Sources */,
 				2725A1971A002519003F06C1 /* String.swift in Sources */,

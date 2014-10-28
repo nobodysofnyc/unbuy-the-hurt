@@ -12,7 +12,7 @@ class ViewController: UIViewController, ScanditSDKOverlayControllerDelegate, Bar
     
     let parser : HTMLParser = HTMLParser()
     
-    let testing = true
+    let testing = false
     
     let scanner = ScanditSDKBarcodePicker(appKey: "synwen4yKux/jyTZR23VcUEb/f8lkwcDBU4ifYuDnRk")
     
@@ -38,27 +38,20 @@ class ViewController: UIViewController, ScanditSDKOverlayControllerDelegate, Bar
     
     func setup() {
         setupBarcodePicker()
-        setupSettings()
     }
     
-    private func setupSettings() {
+    private func tested() {
     }
     
-    private func youFucked(message: String) {
-        showAlert("TESTED", message: message);
+    private func notTested() {
     }
     
-    private func youGood(message: String) {
-        showAlert("NOT TESTED", message: message)
+    private func notFound() {
+        
     }
     
     func handleBarcode(code: String) {
         barcodeHandler.handleBarcode(code)
-    }
-    
-    private func showAlert(title: String, message: String) {
-        let alert = UIAlertView(title: title, message: message, delegate: self, cancelButtonTitle: "Dismiss")
-        alert.show()
     }
     
     private func setupBarcodePicker() {
@@ -67,7 +60,7 @@ class ViewController: UIViewController, ScanditSDKOverlayControllerDelegate, Bar
         } else {
             self.scanner.overlayController.delegate = self
             self.scanner.startScanning()
-            self.presentViewController(self.scanner, animated: true, completion: nil)
+            self.presentViewController(self.scanner, animated: false, completion: nil)
         }
     }
     
@@ -87,12 +80,7 @@ class ViewController: UIViewController, ScanditSDKOverlayControllerDelegate, Bar
     
     func didFailToReceiveBarcodeInformationWithError(errorMessage: String?) {
         stopScanning()
-        
-        if let error = errorMessage {
-            self.showAlert("Uh oh", message: error)
-        } else {
-            self.showAlert("Uh oh", message: "There was a problem finding this product")
-        }
+        self.notFound()
     }
     
     // MARK: Delegate - HTMLParserDelegate
@@ -101,18 +89,15 @@ class ViewController: UIViewController, ScanditSDKOverlayControllerDelegate, Bar
         var tested = false
         let companies = data["companies"] as Array<String>
         let brands = data["brands"] as Array<String>
-        var message : String = ""
         
         var brandName = ""
         if let brand = self.barcodeResult.brandName {
             brandName = brand
-            message += "\(brandName) \n"
         }
         
         var companyName = ""
         if let company = self.barcodeResult.companyName {
             companyName = company
-            message += companyName
         }
 
         for i in 0...(brands.count - 1) {
@@ -120,8 +105,6 @@ class ViewController: UIViewController, ScanditSDKOverlayControllerDelegate, Bar
             if companyName == "lysolbrand" {
                 companyName = "lysol"
             }
-            println(companyName)
-            println("\(name) \n")
             if brandName == name || companyName == name {
                 tested = true
                 break
@@ -142,9 +125,9 @@ class ViewController: UIViewController, ScanditSDKOverlayControllerDelegate, Bar
         }
 
         if tested {
-            youFucked(message)
+            self.tested()
         } else {
-            youGood(message)
+            self.notTested()
         }
     }
     
