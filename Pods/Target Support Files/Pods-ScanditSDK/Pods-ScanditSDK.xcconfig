@@ -1,0 +1,2 @@
+PODS_SCANDITSDK_LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/ScanditSDK/ScanditSDK"
+PODS_SCANDITSDK_OTHER_LDFLAGS = -l"c++" -l"iconv" -l"scanditsdk-iphone-4.1.2" -l"z"
