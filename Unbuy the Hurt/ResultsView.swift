@@ -8,18 +8,18 @@
 
 import UIKit
 
-enum ResultsState {
-    case Positive
-    case Negative
-    case Neutral
+protocol ResultsViewDelegate {
+    func didTapNewScanButton()
 }
 
 class ResultsView: UIView {
-
-    private func colorForState(state: ResultsState) -> UIColor {
-        switch state {
-
-        }
+    
+    @IBOutlet weak var brandLabel: UILabel!
+    
+    var delegate: ResultsViewDelegate?
+    
+    @IBAction func newScanButtonTapped(sender: AnyObject) {
+        self.delegate?.didTapNewScanButton()
     }
-
+    
 }

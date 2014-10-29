@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ufM-zd-OQS">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--Results View Controller-->
+        <scene sceneID="9B7-iC-pHh">
+            <objects>
+                <viewController id="ufM-zd-OQS" customClass="ResultsViewController" customModule="Unbuy_the_Hurt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZIa-dx-t3b"/>
+                        <viewControllerLayoutGuide type="bottom" id="aEd-fu-PaC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gT7-kA-ml4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gl5-Kg-8IA">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <visualEffectView opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CJI-WJ-h4Z">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8qb-uE-IiL">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CJI-WJ-h4Z" firstAttribute="bottom" secondItem="aEd-fu-PaC" secondAttribute="top" id="3eS-Sx-7L0"/>
+                            <constraint firstItem="CJI-WJ-h4Z" firstAttribute="leading" secondItem="gl5-Kg-8IA" secondAttribute="leading" id="7bE-pz-moh"/>
+                            <constraint firstItem="gl5-Kg-8IA" firstAttribute="bottom" secondItem="aEd-fu-PaC" secondAttribute="top" id="8Ah-Gy-vLA"/>
+                            <constraint firstItem="gl5-Kg-8IA" firstAttribute="top" secondItem="gT7-kA-ml4" secondAttribute="top" id="Aea-kv-23R"/>
+                            <constraint firstItem="CJI-WJ-h4Z" firstAttribute="trailing" secondItem="gl5-Kg-8IA" secondAttribute="trailing" id="Aeh-ge-X4z"/>
+                            <constraint firstItem="CJI-WJ-h4Z" firstAttribute="top" secondItem="gl5-Kg-8IA" secondAttribute="top" id="Ek8-R4-SWd"/>
+                            <constraint firstItem="gl5-Kg-8IA" firstAttribute="leading" secondItem="gT7-kA-ml4" secondAttribute="leading" id="Ey9-H1-l8Y"/>
+                            <constraint firstAttribute="trailing" secondItem="gl5-Kg-8IA" secondAttribute="trailing" id="KCX-mg-P9W"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="blurView" destination="CJI-WJ-h4Z" id="Fy0-Js-tkU"/>
+                        <outlet property="screenshotContainerView" destination="gl5-Kg-8IA" id="Grs-dI-fmE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3bh-1p-jGB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="607" y="426"/>
+        </scene>
+    </scenes>
+</document>

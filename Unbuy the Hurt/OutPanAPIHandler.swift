@@ -23,11 +23,11 @@ class OutPanAPIHandler: NSObject {
                 self.delegate?.didFailToReceiveBarcodeInformationWithError(message)
             } else {
                 if let brand: String = response["name"] as? String {
-                    info.brandName = brand.sterilize()
+                    info.brandName = brand
                 }
                 if let manufacturer : JSONDictionary = response["attributes"] as JSONDictionary? {
                     if let company : String = manufacturer["Manufacturer"] as? String {
-                        info.companyName = company.sterilize()
+                        info.companyName = company
                     }
                 }
                 self.delegate?.didReceiveBarcodeInformation(info)
