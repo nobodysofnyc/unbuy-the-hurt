@@ -35,7 +35,7 @@
                                 <action selector="newScanButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="P8B-vV-1ts"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdu-JG-UAL">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdu-JG-UAL">
                             <rect key="frame" x="8" y="125" width="568" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="s46-YJ-Qny"/>

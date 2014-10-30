@@ -47,9 +47,6 @@ InfoControllerDelegate {
             firstAppearance = false
             setupBarcodePicker()
             view.backgroundColor = UIColor.blackColor()
-            
-            handleBarcode("9780006514282")
-            transitionToResultsScreen()
         }
     }
     
@@ -69,6 +66,9 @@ InfoControllerDelegate {
     private func setupBarcodePicker() {
         scanner.overlayController.delegate = self
         scanner.overlayController.setVibrateEnabled(false)
+        let left = Float(23.0 / view.frame.size.width)
+        let top = Float(23.0 / view.frame.size.height)
+        scanner.overlayController.setTorchButtonRelativeX(left, relativeY: top, width: 67, height: 33)
         showScanner(false)
         startScanning()
     }
@@ -156,12 +156,14 @@ InfoControllerDelegate {
     func didFinishParsingHTML(data: Dictionary<String, AnyObject>) {
         var tested = false
         var unsterilizedCompanyName: String?
+        var unsterilizedBrandName: String?
         let companies = data["companies"] as Array<String>
         let brands = data["brands"] as Array<String>
         
         var brandName = ""
         if let brand = self.barcodeResult?.brandName {
             brandName = brand.sterilize()
+            unsterilizedBrandName = brand
         }
         
         var companyName = ""
@@ -213,10 +215,17 @@ InfoControllerDelegate {
             }
         }
         
+        var displayName: String?
+        if let name = unsterilizedCompanyName {
+            displayName = name
+        } else if let name = unsterilizedBrandName {
+            displayName = name
+        }
+        
         if tested {
-            showResults(.Positive, text: unsterilizedCompanyName)
+            showResults(.Positive, text: displayName)
         } else {
-            showResults(.Negative, text: unsterilizedCompanyName)
+            showResults(.Negative, text: displayName)
         }
     }
     
