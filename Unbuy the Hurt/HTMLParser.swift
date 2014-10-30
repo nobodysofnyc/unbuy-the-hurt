@@ -20,7 +20,11 @@ class HTMLParser: NSObject {
     
     var delegate : HTMLParserDelegate?
     
-    let JSONFileName : String = "/cache.json"
+    let companyQueryString: String = "//div[@class='entry-content']/h2"
+    
+    let brandQueryString: String = "//div[@class='entry-content']/ul/li"
+    
+    let CacheFileName : String = "cache.json"
     
     lazy var parser : TFHpple = {
         let HTMLURL: NSURL? = NSURL(string: "http://veganrabbit.com/list-of-companies-that-do-test-on-animals/")
@@ -63,7 +67,7 @@ class HTMLParser: NSObject {
 
     private func parseHeaders() -> [String] {
         var headers : [String] = []
-        let queryString = "//div[@class='entry-content']/h2"
+        let queryString = companyQueryString
         let headerNodesArray : NSArray = parser.searchWithXPathQuery(queryString) as NSArray
         for nodeJSON in headerNodesArray {
             let node : TFHppleElement = nodeJSON as TFHppleElement
@@ -88,7 +92,7 @@ class HTMLParser: NSObject {
     
     private func parseBrands() -> [String] {
         var brands : [String] = []
-        let queryString = "//div[@class='entry-content']/ul/li"
+        let queryString = brandQueryString
         let listNodesArray : NSArray = parser.searchWithXPathQuery(queryString) as NSArray
         for nodeJSON in listNodesArray {
             let node : TFHppleElement = nodeJSON as TFHppleElement
@@ -119,7 +123,7 @@ class HTMLParser: NSObject {
     
     private func filePath() -> String {
         let documentsPath : NSString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-        let destinationPath = documentsPath.stringByAppendingPathComponent("cache.json")
+        let destinationPath = documentsPath.stringByAppendingPathComponent(CacheFileName)
         return destinationPath
     }
 }

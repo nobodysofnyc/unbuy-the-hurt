@@ -59,14 +59,9 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        // 1. add screenshot
+
         addScreenshot()
-        
-        // hide scanner
-        delegate?.didFinishPreparing()
-        
-        // 2. set backgroundColor
+        delegate?.didFinishPreparing() // hide scanner
         blurView.contentView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.7)
         
         loader.startAnimating()
@@ -79,8 +74,6 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
         super.viewDidAppear(animated)
 
         UIView.animateWithDuration(0.4, animations: {
-            
-            // 3. fade in blur view
             self.blurView.alpha = 1.0
             if let screenshot = self.screenshotView {
                 screenshot.transform = CGAffineTransformMakeScale(0.92, 0.92)
