@@ -28,4 +28,23 @@ extension UIViewController {
         viewController.view.removeFromSuperview()
         viewController.removeFromParentViewController()
     }
+    
+    func _setCurrentAPIPreference(name: String!) {
+        NSUserDefaults.standardUserDefaults().setValue(name, forKey: "api_selection")
+    }
+    
+    func _getCurrentAPIPreference() -> String {
+        if let selection = NSUserDefaults.standardUserDefaults().valueForKey("api_selection") as String? {
+            if selection.isEmpty {
+                _setCurrentAPIPreference("Outpan")
+                return "Outpan"
+            } else {
+                return selection
+            }
+        } else {
+            _setCurrentAPIPreference("Outpan")
+            return "Outpan"
+        }
+    }
+
 }

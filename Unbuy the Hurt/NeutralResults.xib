@@ -73,13 +73,47 @@
                         <constraint firstAttribute="centerX" secondItem="wZ2-Av-8f8" secondAttribute="centerX" id="tFx-IN-xBm"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5p-VF-DeS">
+                    <rect key="frame" x="532" y="532" width="60" height="60"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info" translatesAutoresizingMaskIntoConstraints="NO" id="af0-gE-sPX">
+                            <rect key="frame" x="14" y="13" width="33" height="33"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="33" id="0KP-1v-O4g"/>
+                                <constraint firstAttribute="height" constant="33" id="Cea-to-Awo"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXh-OO-eNQ">
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="infoButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="RmD-3u-okU"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="af0-gE-sPX" secondAttribute="centerY" id="6DL-Z0-5Nd"/>
+                        <constraint firstAttribute="width" constant="60" id="8cZ-Jk-xRs"/>
+                        <constraint firstAttribute="height" constant="60" id="N6q-I2-Og4"/>
+                        <constraint firstAttribute="bottom" secondItem="xXh-OO-eNQ" secondAttribute="bottom" id="RT7-RJ-wmS"/>
+                        <constraint firstItem="xXh-OO-eNQ" firstAttribute="top" secondItem="e5p-VF-DeS" secondAttribute="top" id="Wvv-1d-h3B"/>
+                        <constraint firstAttribute="centerX" secondItem="af0-gE-sPX" secondAttribute="centerX" id="c9h-fS-Ns4"/>
+                        <constraint firstItem="xXh-OO-eNQ" firstAttribute="leading" secondItem="e5p-VF-DeS" secondAttribute="leading" id="skC-tq-BDQ"/>
+                        <constraint firstAttribute="trailing" secondItem="xXh-OO-eNQ" secondAttribute="trailing" id="vuj-R1-UnN"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.59055897887323949" green="0.59055897887323949" blue="0.59055897887323949" alpha="0.0" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="c5M-xk-Uzh" secondAttribute="trailing" constant="8" id="BTN-Gg-gVz"/>
+                <constraint firstAttribute="bottom" secondItem="e5p-VF-DeS" secondAttribute="bottom" constant="8" id="Ulv-Xo-RsH"/>
                 <constraint firstAttribute="centerX" secondItem="c5M-xk-Uzh" secondAttribute="centerX" id="WAb-h0-Mlj"/>
                 <constraint firstItem="c5M-xk-Uzh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="bBP-sr-7Iz"/>
                 <constraint firstAttribute="centerY" secondItem="c5M-xk-Uzh" secondAttribute="centerY" id="fCQ-NT-Eee"/>
+                <constraint firstAttribute="trailing" secondItem="e5p-VF-DeS" secondAttribute="trailing" constant="8" id="lGI-ix-LW1"/>
             </constraints>
             <connections>
                 <outlet property="brandLabel" destination="byr-fW-3KN" id="hWW-P9-atq"/>
@@ -87,6 +121,7 @@
         </view>
     </objects>
     <resources>
-        <image name="unknown" width="178" height="178"/>
+        <image name="info" width="33" height="33"/>
+        <image name="unknown" width="89" height="89"/>
     </resources>
 </document>

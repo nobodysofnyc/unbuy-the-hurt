@@ -17,24 +17,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYE-rt-GdW">
-                                <rect key="frame" x="551" y="547" width="33" height="33"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dI-vR-Ue6">
+                                <rect key="frame" x="532" y="532" width="60" height="60"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info" translatesAutoresizingMaskIntoConstraints="NO" id="2mS-DR-fi0">
+                                        <rect key="frame" x="14" y="13" width="33" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="33" id="7Ef-dg-Hka"/>
+                                            <constraint firstAttribute="height" constant="33" id="hhZ-HX-Q0C"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uA0-Yw-PZ8">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="infoButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cBt-Bm-D67"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="33" id="J8f-Za-xdl"/>
-                                    <constraint firstAttribute="height" constant="33" id="dhO-ec-jGV"/>
+                                    <constraint firstAttribute="bottom" secondItem="uA0-Yw-PZ8" secondAttribute="bottom" id="1AW-fT-UnJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="uA0-Yw-PZ8" secondAttribute="trailing" id="9nB-5B-FKQ"/>
+                                    <constraint firstAttribute="width" constant="60" id="dHB-tP-bps"/>
+                                    <constraint firstItem="uA0-Yw-PZ8" firstAttribute="leading" secondItem="2dI-vR-Ue6" secondAttribute="leading" id="dkj-Jn-1kS"/>
+                                    <constraint firstAttribute="height" constant="60" id="eLq-en-JM5"/>
+                                    <constraint firstAttribute="centerX" secondItem="2mS-DR-fi0" secondAttribute="centerX" id="eQI-EZ-RYb"/>
+                                    <constraint firstAttribute="centerY" secondItem="2mS-DR-fi0" secondAttribute="centerY" id="wzL-Ek-oiP"/>
+                                    <constraint firstItem="uA0-Yw-PZ8" firstAttribute="top" secondItem="2dI-vR-Ue6" secondAttribute="top" id="xl6-Px-8K5"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="info">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="infoButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hPj-Rx-QeQ"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="LYE-rt-GdW" secondAttribute="bottom" constant="20" id="SuX-XG-w7l"/>
-                            <constraint firstItem="LYE-rt-GdW" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="l5L-yd-Vhe"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="2dI-vR-Ue6" secondAttribute="bottom" constant="8" id="GKZ-zJ-UJu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2dI-vR-Ue6" secondAttribute="trailing" constant="-8" id="UB4-23-uX4"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -43,6 +62,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="info" width="66" height="66"/>
+        <image name="info" width="33" height="33"/>
     </resources>
 </document>

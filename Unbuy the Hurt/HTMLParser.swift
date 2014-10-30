@@ -39,14 +39,26 @@ class HTMLParser: NSObject {
     }
     
     func parseHTML() {
+
         if let cache : Dictionary<String, AnyObject> = cachedResuts() as? Dictionary<String,AnyObject> {
             // TODO: bust cache
-            self.delegate?.didFinishParsingHTML(cache)
+            if let cacheDate: NSDate = cache["date"] as? NSDate {
+                if NSDate().timeIntervalSinceDate(cacheDate) > 60 * 60 * 24 {
+                    fetchAndCacheHTML()
+                } else {
+                    self.delegate?.didFinishParsingHTML(cache)
+                }
+            }
+
         } else {
-            let data = self.fetchAndParseHTML()
-            self.cacheResults(data)
-            self.delegate?.didFinishParsingHTML(data)
+            fetchAndCacheHTML()
         }
+    }
+    
+    private func fetchAndCacheHTML() {
+        let data = self.fetchAndParseHTML()
+        self.cacheResults(data)
+        self.delegate?.didFinishParsingHTML(data)
     }
     
     private func fetchAndParseHTML() -> Dictionary<String, AnyObject> {

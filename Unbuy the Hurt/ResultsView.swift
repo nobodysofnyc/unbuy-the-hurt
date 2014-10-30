@@ -10,6 +10,7 @@ import UIKit
 
 protocol ResultsViewDelegate {
     func didTapNewScanButton()
+    func didTapInfoButton()
 }
 
 class ResultsView: UIView {
@@ -20,6 +21,10 @@ class ResultsView: UIView {
     
     @IBAction func newScanButtonTapped(sender: AnyObject) {
         self.delegate?.didTapNewScanButton()
+    }
+    
+    @IBAction func infoButtonTapped(sender: AnyObject) {
+        self.delegate?.didTapInfoButton()
     }
     
 }

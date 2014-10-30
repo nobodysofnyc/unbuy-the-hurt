@@ -11,6 +11,7 @@ import UIKit
 protocol ResultsViewControllerDelegate {
     func didFinishPreparing()
     func isReadyForNewScan()
+    func didTapInfoButton()
 }
 
 enum ResultsState {
@@ -22,11 +23,19 @@ enum ResultsState {
 
 class ResultsViewController: UIViewController, ResultsViewDelegate {
     
-    var screenshotView = UIView()
+    var screenshotView: UIView?
     
-    var currentStateView: ResultsView = ResultsView()
+    var currentStateView: ResultsView?
+    
+    var timer: NSTimer?
+    
+    let time: NSTimeInterval = 1.2
+    
+    var timerHasFired = false
     
     var state: ResultsState = .Default
+    
+    var companyName: String?
     
     var loader: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
@@ -40,53 +49,73 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
     
     var delegate: ResultsViewControllerDelegate?
     
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blackColor()
         
-        blurView.contentView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.7)
+        loader.center = self.view.center
+        blurView.contentView.addSubview(loader)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // 1. add screenshot
         addScreenshot()
+        
+        // hide scanner
         delegate?.didFinishPreparing()
         
-        loader.center = self.view.center
+        // 2. set backgroundColor
+        blurView.contentView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.7)
+        
         loader.startAnimating()
-        blurView.contentView.addSubview(loader)
+        
+        setTimer()
     }
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        UIView.animateWithDuration(0.2, animations: {
+
+        UIView.animateWithDuration(0.4, animations: {
+            
+            // 3. fade in blur view
             self.blurView.alpha = 1.0
-            self.screenshotView.transform = CGAffineTransformMakeScale(0.88, 0.88)
-        }) { (finished: Bool) -> Void in
-        }
+            if let screenshot = self.screenshotView {
+                screenshot.transform = CGAffineTransformMakeScale(0.92, 0.92)
+            }
+        })
     }
     
     func updateForState(state: ResultsState, name: String?) {
         
         self.state = state
+        self.companyName = name
         
-        loader.stopAnimating()
-        
-        currentStateView = viewForState(state)
-        if let companyName = name {
-            currentStateView.brandLabel.text = companyName
-        }
-        self.view.addSubview(currentStateView)
-        
-        UIView.animateWithDuration(0.4, animations: {
-            self.blurView.contentView.backgroundColor = self.colorForState(state).colorWithAlphaComponent(0.6)
-        }) { (finished: Bool) -> Void in
+        if timerHasFired {
+            timerHasFired = false
             
+            loader.stopAnimating()
+        
+            currentStateView = viewForState(state)
+            if let stateView = currentStateView {
+                self.view.addSubview(stateView)
+                stateView.alpha = 0.0
+            }
+            
+            if let company = self.companyName {
+                if let stateView = currentStateView {
+                    stateView.brandLabel.text = company
+                }
+            }
+            
+            UIView.animateWithDuration(0.4, animations: {
+                if let stateView = self.currentStateView {
+                    stateView.alpha = 1.0
+                }
+                self.blurView.contentView.backgroundColor = self.colorForState(state).colorWithAlphaComponent(0.6)
+            })
         }
     }
     
@@ -94,17 +123,45 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
         delegate?.isReadyForNewScan()
     }
     
-    func addScreenshot() {
-        screenshotView = UIScreen.mainScreen().snapshotViewAfterScreenUpdates(true)
-        screenshotContainerView.addSubview(self.screenshotView)
+    func didTapInfoButton() {
+        delegate?.didTapInfoButton()
     }
     
-    func reset() {
-        screenshotView.removeFromSuperview()
-        blurView.alpha = 0.0;
-        loader.stopAnimating()
-        currentStateView.removeFromSuperview()
-        blurView.contentView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.7)
+    func reset(onComplete: (() -> ())?) {
+        
+        UIView.animateWithDuration(0.2, animations: {
+            if let screenshot = self.screenshotView {
+                screenshot.alpha = 0.0
+            }
+            self.view.backgroundColor = UIColor.clearColor()
+            if let stateView = self.currentStateView {
+                stateView.alpha = 0.0
+            }
+        }) { (finished: Bool) -> Void in
+            if let screenshot = self.screenshotView {
+                screenshot.removeFromSuperview()
+            }
+            
+            if let stateView = self.currentStateView {
+                stateView.removeFromSuperview()
+            }
+        
+            UIView.animateWithDuration(0.4, animations: {
+                self.blurView.alpha = 0.0
+            }, completion: { (finished: Bool) -> Void in
+                if let complete = onComplete {
+                    complete()
+                }
+            })
+        }
+    }
+    
+    func addScreenshot() {
+        screenshotView = UIScreen.mainScreen().snapshotViewAfterScreenUpdates(true)
+        if let screenshot = screenshotView {
+            screenshotContainerView.backgroundColor = UIColor.clearColor()
+            screenshotContainerView.addSubview(screenshot)
+        }
     }
     
     private func colorForState(state: ResultsState) -> UIColor {
@@ -146,6 +203,20 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
     
     private func classname(node: AnyObject!) -> String {
         return _stdlib_getTypeName(node)
+    }
+    
+    // MARK: Timer
+    
+    private func setTimer() {
+        timer = NSTimer.scheduledTimerWithTimeInterval(time, target: self, selector: "doThatTimer", userInfo: nil, repeats: false)
+    }
+    
+    func doThatTimer() {
+        timerHasFired = true
+        
+        if state != .Default {
+            updateForState(self.state, name: self.companyName)
+        }
     }
 
 }

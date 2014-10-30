@@ -12,11 +12,14 @@ class ViewController: UIViewController,
 ScanditSDKOverlayControllerDelegate,
 BarcodeHandlerDelegate,
 HTMLParserDelegate,
-ResultsViewControllerDelegate {
+ResultsViewControllerDelegate,
+InfoControllerDelegate {
     
     let parser: HTMLParser = HTMLParser()
     
     var firstAppearance = true;
+    
+    var infoController: InfoController?
     
     let scanner = ScanditSDKBarcodePicker(appKey: "synwen4yKux/jyTZR23VcUEb/f8lkwcDBU4ifYuDnRk")
     
@@ -59,7 +62,8 @@ ResultsViewControllerDelegate {
     }
     
     func handleBarcode(code: String) {
-        barcodeHandler.handleBarcode(code)
+        let api: BarcodeHandlers = _getCurrentAPIPreference() == "Outpan" ? .Outpan : .DigitEyes
+        barcodeHandler.handleBarcode(code, handler: api)
     }
     
     func transitionToResults() {
@@ -71,13 +75,22 @@ ResultsViewControllerDelegate {
     // MARK: IBAction
     
     @IBAction func infoButtonTapped(sender: AnyObject) {
+        showInfoScreen()
+    }
+    
+    func showInfoScreen() {
         stopScanning()
         
         let storyboard = UIStoryboard(name: "Info", bundle: nil)
         let viewController: InfoController = storyboard.instantiateInitialViewController() as InfoController
-        addContentViewController(viewController)
+        infoController = viewController
+        if let controller = infoController {
+            controller.delegate = self
+            addContentViewController(controller)
+        }
     }
-    
+
+
     // MARK: Show results state
     
     func showTested(name: String?) {
@@ -171,6 +184,7 @@ ResultsViewControllerDelegate {
                 }
             }
         }
+        
         if tested {
             showTested(unsterilizedCompanyName)
         } else {
@@ -204,9 +218,30 @@ ResultsViewControllerDelegate {
     
     func isReadyForNewScan() {
         showScanner(false)
-        startScanning()
-        resultsViewController.reset()
-        removeContentViewController(resultsViewController)
+        resultsViewController.reset({
+            self.removeContentViewController(self.resultsViewController)
+            self.startScanning()
+            return ()
+        })
+    }
+    
+    func didTapInfoButton() {
+        showScanner(false)
+        self.showInfoScreen()
+        resultsViewController.reset({
+            self.removeContentViewController(self.resultsViewController)
+            return ()
+        })
+    }
+    
+    // MARK: Delegate - InfoControllerDelegate
+    
+    func infoScreenCloseButtonTapped() {
+        if let viewController = infoController {
+            removeContentViewController(viewController)
+            infoController = nil
+            startScanning()
+        }
     }
     
 

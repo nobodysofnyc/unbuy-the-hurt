@@ -14,8 +14,8 @@ class DigitEyesAPIHandler: NSObject {
     
     func lookupBarcode(code: String) {
 
-        let key = "/2ewENuLw81W"
-        let auth = "Tf59X3m8q6My2Yg2"
+        let key = "/4JIJ5iDFkU5"
+        let auth = "Il67Z0u8n1Hs7Om3"
         let codeAsNSString = code as NSString
         let signature = codeAsNSString.hashedValue(auth)
         let fields = "brand,gpc_name_address,manufacturer"
@@ -29,12 +29,12 @@ class DigitEyesAPIHandler: NSObject {
             let json : JSONDictionary = response as JSONDictionary
         
             if let brand: String = json["brand"] as? String {
-                info.brandName = brand.sterilize()
+                info.brandName = brand
             }
             
             if let manufacturer : JSONDictionary = json["manufacturer"] as JSONDictionary? {
                 if let company : String = manufacturer["company"] as? String {
-                    info.companyName = company.sterilize()
+                    info.companyName = company
                 }
             }
         
@@ -42,7 +42,8 @@ class DigitEyesAPIHandler: NSObject {
             
         }) { (request: AFHTTPRequestOperation!, error: NSError!) -> Void in
             
-            
+            self.delegate?.didFailToReceiveBarcodeInformationWithError(nil)
+            return()
         }
     }
 }

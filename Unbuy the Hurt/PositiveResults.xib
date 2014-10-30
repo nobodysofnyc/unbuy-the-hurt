@@ -32,7 +32,7 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="newScanButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="F7d-9X-Gzu"/>
+                                <action selector="newScanButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="pKW-lB-ZkW"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJa-1j-X3c">
@@ -74,12 +74,46 @@
                         <constraint firstItem="gJa-1j-X3c" firstAttribute="leading" secondItem="2jR-7C-rZX" secondAttribute="leading" constant="8" id="z0o-Ie-mvI"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YSn-O6-p5y">
+                    <rect key="frame" x="532" y="532" width="60" height="60"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info" translatesAutoresizingMaskIntoConstraints="NO" id="7lH-iT-Mvl">
+                            <rect key="frame" x="14" y="13" width="33" height="33"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="33" id="RlN-bL-9zw"/>
+                                <constraint firstAttribute="width" constant="33" id="muF-BL-Ae9"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MvX-Ui-Q0o">
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="infoButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="OEf-cj-wMF"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="7lH-iT-Mvl" secondAttribute="centerY" id="C4Q-aA-6RJ"/>
+                        <constraint firstAttribute="centerX" secondItem="7lH-iT-Mvl" secondAttribute="centerX" id="Ccu-HH-Pjn"/>
+                        <constraint firstItem="MvX-Ui-Q0o" firstAttribute="top" secondItem="YSn-O6-p5y" secondAttribute="top" id="KCM-y5-jaU"/>
+                        <constraint firstAttribute="bottom" secondItem="MvX-Ui-Q0o" secondAttribute="bottom" id="Kxm-SJ-m6K"/>
+                        <constraint firstAttribute="trailing" secondItem="MvX-Ui-Q0o" secondAttribute="trailing" id="g1e-We-tWE"/>
+                        <constraint firstAttribute="width" constant="60" id="kGS-tx-0Gg"/>
+                        <constraint firstAttribute="height" constant="60" id="ytD-ou-U2a"/>
+                        <constraint firstItem="MvX-Ui-Q0o" firstAttribute="leading" secondItem="YSn-O6-p5y" secondAttribute="leading" id="zdv-ke-bGW"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="2jR-7C-rZX" secondAttribute="centerY" id="0R4-Dz-C7N"/>
+                <constraint firstAttribute="bottom" secondItem="YSn-O6-p5y" secondAttribute="bottom" constant="8" id="5zW-tZ-gOM"/>
                 <constraint firstAttribute="trailing" secondItem="2jR-7C-rZX" secondAttribute="trailing" constant="8" id="A08-Aw-LQ2"/>
                 <constraint firstItem="2jR-7C-rZX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="QkQ-6p-g4u"/>
+                <constraint firstAttribute="trailing" secondItem="YSn-O6-p5y" secondAttribute="trailing" constant="8" id="Tfn-8E-a3Y"/>
                 <constraint firstAttribute="centerX" secondItem="2jR-7C-rZX" secondAttribute="centerX" id="xLg-1x-PRM"/>
             </constraints>
             <connections>
@@ -88,6 +122,7 @@
         </view>
     </objects>
     <resources>
-        <image name="no" width="178" height="178"/>
+        <image name="info" width="33" height="33"/>
+        <image name="no" width="89" height="89"/>
     </resources>
 </document>

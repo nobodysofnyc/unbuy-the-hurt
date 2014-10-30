@@ -71,11 +71,49 @@
                         <constraint firstItem="W1y-Zv-MRx" firstAttribute="top" secondItem="Mdu-JG-UAL" secondAttribute="bottom" constant="9" id="zz3-xO-Nje"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAl-7h-ySz">
+                    <rect key="frame" x="532" y="532" width="60" height="60"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info" translatesAutoresizingMaskIntoConstraints="NO" id="IDF-Gp-EIa">
+                            <rect key="frame" x="14" y="13" width="33" height="33"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="33" id="0sP-Gi-YdX"/>
+                                <constraint firstAttribute="height" constant="33" id="BQ2-b8-cD8"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQx-CB-3D3">
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="F5r-VG-UiD"/>
+                                <constraint firstAttribute="height" constant="60" id="wwP-o0-i5e"/>
+                            </constraints>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="infoButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="dD4-UP-PLk"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="IDF-Gp-EIa" secondAttribute="centerY" id="0V1-rU-nVu"/>
+                        <constraint firstItem="wQx-CB-3D3" firstAttribute="leading" secondItem="JAl-7h-ySz" secondAttribute="leading" id="Afa-xy-CxF"/>
+                        <constraint firstAttribute="bottom" secondItem="wQx-CB-3D3" secondAttribute="bottom" id="As4-EP-tiq"/>
+                        <constraint firstAttribute="height" constant="60" id="UJ5-Yk-xR7"/>
+                        <constraint firstItem="wQx-CB-3D3" firstAttribute="top" secondItem="JAl-7h-ySz" secondAttribute="top" id="ZDY-5l-ij1"/>
+                        <constraint firstAttribute="centerX" secondItem="IDF-Gp-EIa" secondAttribute="centerX" id="efL-7n-mQ3"/>
+                        <constraint firstAttribute="width" constant="60" id="nGV-IY-jEM"/>
+                        <constraint firstAttribute="trailing" secondItem="wQx-CB-3D3" secondAttribute="trailing" id="ozu-eY-YDL"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="lx2-Xn-X4P" secondAttribute="trailing" constant="8" id="1xh-52-xcw"/>
                 <constraint firstItem="lx2-Xn-X4P" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="4Gi-ju-QXK"/>
+                <constraint firstAttribute="bottom" secondItem="JAl-7h-ySz" secondAttribute="bottom" constant="8" id="F61-6f-BY2"/>
+                <constraint firstAttribute="trailing" secondItem="JAl-7h-ySz" secondAttribute="trailing" constant="8" id="IOm-Ag-CE9"/>
                 <constraint firstAttribute="centerX" secondItem="lx2-Xn-X4P" secondAttribute="centerX" id="gWt-f4-GIm"/>
                 <constraint firstAttribute="centerY" secondItem="lx2-Xn-X4P" secondAttribute="centerY" id="hlg-In-sW4"/>
             </constraints>
@@ -85,6 +123,7 @@
         </view>
     </objects>
     <resources>
-        <image name="yes" width="178" height="178"/>
+        <image name="info" width="33" height="33"/>
+        <image name="yes" width="89" height="89"/>
     </resources>
 </document>
