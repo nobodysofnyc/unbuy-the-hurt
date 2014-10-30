@@ -25,17 +25,9 @@ InfoControllerDelegate {
 
     let scanner = ScanditSDKBarcodePicker(appKey: "synwen4yKux/jyTZR23VcUEb/f8lkwcDBU4ifYuDnRk")
     
-    var resultsViewController: ResultsViewController = {
-        let storyboard = UIStoryboard(name: "ResultsViewController", bundle: nil)
-        let viewController: ResultsViewController = storyboard.instantiateInitialViewController() as ResultsViewController
-        return viewController
-    }()
+    var resultsViewController: ResultsViewController?
     
-    lazy var barcodeHandler: BarcodeHandler = {
-        var handler = BarcodeHandler()
-        handler.delegate = self;
-        return handler
-    }()
+    var barcodeHandler: BarcodeHandler?
     
     
     // MARK: Lifecycle
@@ -73,13 +65,16 @@ InfoControllerDelegate {
     
     private func setupBarcodePicker() {
         scanner.overlayController.delegate = self
+        scanner.overlayController.setVibrateEnabled(false)
         showScanner(false)
         startScanning()
     }
     
     func handleBarcode(code: String) {
-        let api: BarcodeHandlers = _getCurrentAPIPreference() == "Outpan" ? .Outpan : .DigitEyes
-        barcodeHandler.handleBarcode(code, handler: api)
+        let api: BarcodeAPI = _getCurrentAPIPreference() == "Outpan" ? .Outpan : .DigitEyes
+        barcodeHandler = BarcodeHandler(api: api)
+        barcodeHandler?.delegate = self
+        barcodeHandler?.handleBarcode(code)
     }
     
     // MARK: IBAction
@@ -104,13 +99,21 @@ InfoControllerDelegate {
     // MARK: Show results state
     
     func showResults(state: ResultsState, text: String?) {
-        resultsViewController.updateForState(state, name: text)
+        if let viewController = resultsViewController {
+            viewController.updateForState(state, name: text)
+        }
     }
 
     func transitionToResultsScreen() {
-        resultsViewController.delegate = self
-        addContentViewController(resultsViewController)
-        hideScanner(false)
+        let storyboard = UIStoryboard(name: "ResultsViewController", bundle: nil)
+        resultsViewController = storyboard.instantiateInitialViewController() as? ResultsViewController
+
+        if let resultsController  = resultsViewController {
+            resultsController.delegate = self
+            addContentViewController(resultsController)
+            hideScanner(false)
+        }
+
     }
     
     
@@ -137,9 +140,7 @@ InfoControllerDelegate {
     
     func didReceiveBarcodeInformation(info: BarcodeResult) {
         barcodeResult = info
-        if let p = parser {
-            p.parseHTML()
-        }
+        parser?.parseHTML()
     }
     
     func didFailToReceiveBarcodeInformationWithError(errorMessage: String?) {
@@ -245,20 +246,27 @@ InfoControllerDelegate {
     
     func isReadyForNewScan() {
         showScanner(false)
-        resultsViewController.reset({
-            self.removeContentViewController(self.resultsViewController)
-            self.startScanning()
-            return ()
-        })
+        if let viewController = resultsViewController {
+            viewController.reset({
+                self.removeContentViewController(viewController)
+                self.resultsViewController = nil
+                self.startScanning()
+                return ()
+            })
+        }
     }
     
     func didTapInfoButton() {
         showScanner(false)
         self.showInfoScreen()
-        resultsViewController.reset({
-            self.removeContentViewController(self.resultsViewController)
-            return ()
-        })
+        
+        if let viewController = resultsViewController {
+            viewController.reset({
+                self.removeContentViewController(viewController)
+                self.resultsViewController = nil
+                return ()
+            })
+        }
     }
     
     

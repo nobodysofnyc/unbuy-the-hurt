@@ -200,7 +200,7 @@
                                                 <constraint firstAttribute="height" constant="60" id="wHt-5E-0QM"/>
                                             </constraints>
                                         </view>
-                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmR-By-WZH">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmR-By-WZH">
                                             <rect key="frame" x="233" y="554" width="134" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="6mr-SY-Ee2"/>

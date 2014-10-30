@@ -17,7 +17,7 @@ typealias BarcodeResult = (brandName: String?, companyName: String?)
 typealias JSON = AnyObject
 typealias JSONDictionary = Dictionary<String, JSON>
 
-enum BarcodeHandlers {
+enum BarcodeAPI {
     case DigitEyes
     case Outpan
 }
@@ -25,13 +25,20 @@ enum BarcodeHandlers {
 class BarcodeHandler: NSObject, BarcodeHandlerDelegate {
 
     var delegate: BarcodeHandlerDelegate?
-   
-    func handleBarcode(code: String, handler: BarcodeHandlers) {
-        self.lookupBarcodeInformation(code, handler: handler)
+    
+    var api: BarcodeAPI?
+    
+    init(api: BarcodeAPI!) {
+        self.api = api
+        super.init()
     }
     
-    private func lookupBarcodeInformation(code: String, handler: BarcodeHandlers) {
-        if handler == .DigitEyes {
+    func handleBarcode(code: String) {
+        self.lookupBarcodeInformation(code)
+    }
+    
+    private func lookupBarcodeInformation(code: String) {
+        if api == .DigitEyes {
             let apiHandler = DigitEyesAPIHandler()
             apiHandler.delegate = self
             apiHandler.lookupBarcode(code)

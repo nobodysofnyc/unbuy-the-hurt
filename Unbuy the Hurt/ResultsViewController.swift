@@ -131,14 +131,6 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
                 stateView.alpha = 0.0
             }
         }) { (finished: Bool) -> Void in
-            if let screenshot = self.screenshotView {
-                screenshot.removeFromSuperview()
-            }
-            
-            if let stateView = self.currentStateView {
-                stateView.removeFromSuperview()
-            }
-        
             UIView.animateWithDuration(0.4, animations: {
                 self.blurView.alpha = 0.0
             }, completion: { (finished: Bool) -> Void in
