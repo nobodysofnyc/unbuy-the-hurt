@@ -47,6 +47,9 @@ InfoControllerDelegate {
             firstAppearance = false
             setupBarcodePicker()
             view.backgroundColor = UIColor.blackColor()
+            
+            handleBarcode("9780006514282")
+            transitionToResultsScreen()
         }
     }
     
