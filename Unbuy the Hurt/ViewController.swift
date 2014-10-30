@@ -207,7 +207,6 @@ InfoControllerDelegate {
                     tested = true
                     break
                 }
-                println(name)
             }
         }
         
