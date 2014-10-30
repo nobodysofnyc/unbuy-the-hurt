@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import MessageUI
 
 protocol InfoControllerDelegate {
     func infoScreenCloseButtonTapped()
 }
 
-class InfoController: UIViewController, UIActionSheetDelegate {
+class InfoController: UIViewController, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
     
     var delegate: InfoControllerDelegate?
     
@@ -88,12 +89,8 @@ class InfoController: UIViewController, UIActionSheetDelegate {
         animateOut()
     }
 
-    @IBAction func litteThingsButtonTapped(sender: AnyObject) {
-        openSafariWithURL("http://www.navs.org/cruelty-free/little-things-mean-a-lot")
-    }
-    
-    @IBAction func pledgeButtonTapped(sender: AnyObject) {
-        openSafariWithURL("https://secure.peta.org/site/Advocacy?cmd=display&page=UserAction&id=2061")
+    @IBAction func emailButtonTapped(sender: AnyObject) {
+        showEmailForm()
     }
     
     @IBAction func veganRabbitButtonTapped(sender: AnyObject) {
@@ -101,7 +98,19 @@ class InfoController: UIViewController, UIActionSheetDelegate {
     }
     
     @IBAction func toggleAPIButtonTapped(sender: AnyObject) {
-        self.setCurrentAPI(_getCurrentAPIPreference() == "Outpan" ? "Digit Eyes" : "Outpan")
+        setCurrentAPI(_getCurrentAPIPreference() == "Outpan" ? "Digit Eyes" : "Outpan")
+    }
+    
+    
+    // MARK: Email 
+    
+    private func showEmailForm() {
+        var mailer = MFMailComposeViewController()
+        mailer.mailComposeDelegate = self
+        mailer.setSubject("Subject")
+        mailer.setToRecipients(["mark.moll@gmail.com"])
+        
+        presentViewController(mailer, animated: true, completion: nil)
     }
     
     
@@ -128,6 +137,13 @@ class InfoController: UIViewController, UIActionSheetDelegate {
     
     private func _setAPIButtonTitle(name: String!) {
         toggleAPIButton.setTitle("UPC Database: \(name)", forState: .Normal)
+    }
+    
+    
+    // MARK: Delegate - MFMailComposeViewControllerDelegate
+    
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
 }
