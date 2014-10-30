@@ -12,14 +12,14 @@ class DigitEyesAPIHandler: NSObject {
     
     var delegate: BarcodeHandlerDelegate?
     
+    let appKey: String  = "/4JIJ5iDFkU5"
+    let authKey: String = "Il67Z0u8n1Hs7Om3"
+    
     func lookupBarcode(code: String) {
 
-        let key = "/4JIJ5iDFkU5"
-        let auth = "Il67Z0u8n1Hs7Om3"
-        let codeAsNSString = code as NSString
-        let signature = codeAsNSString.hashedValue(auth)
+        let signature = (code as NSString).hashedValue(authKey)
         let fields = "brand,gpc_name_address,manufacturer"
-        let urlString = "http://digit-eyes.com/gtin/v2_0/?upc_code=\(code)&app_key=\(key)&signature=\(signature)&language=en&field_names=\(fields)"
+        let urlString = "http://digit-eyes.com/gtin/v2_0/?upc_code=\(code)&app_key=\(appKey)&signature=\(signature)&language=en&field_names=\(fields)"
         
         var info: BarcodeResult
         

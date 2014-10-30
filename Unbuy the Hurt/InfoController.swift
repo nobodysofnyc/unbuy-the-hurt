@@ -22,6 +22,9 @@ class InfoController: UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var toggleAPIButton: UIButton!
     
+    
+    // MARK: Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +36,9 @@ class InfoController: UIViewController, UIActionSheetDelegate {
         
         animateIn()
     }
+    
+    
+    // MARK: Setup
     
     private func setup() {
         setupInitialUI()   // set initial colors and alphas
@@ -47,15 +53,18 @@ class InfoController: UIViewController, UIActionSheetDelegate {
     
     private func setVersionString() {
         var versionString = ""
-        if let version: String? = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as String? {
+        if let version: String = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? String {
             versionString += version
-            if let build: String? = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion") as String? {
+            if let build: String = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion") as? String {
                 versionString += " (\(build))"
             }
         }
         
         versionLabel.text = versionString
     }
+    
+    
+    // MARK: Fade In/Out transition
     
     func animateIn() {
         UIView.animateWithDuration(animateInDuration, animations: {
@@ -71,6 +80,9 @@ class InfoController: UIViewController, UIActionSheetDelegate {
             return()
         }
     }
+    
+    
+    // MARK: IBAction
     
     @IBAction func closeButtonTapped(sender: AnyObject) {
         animateOut()
@@ -88,6 +100,13 @@ class InfoController: UIViewController, UIActionSheetDelegate {
         openSafariWithURL("http://veganrabbit.com/list-of-companies-that-do-test-on-animals/")
     }
     
+    @IBAction func toggleAPIButtonTapped(sender: AnyObject) {
+        self.setCurrentAPI(_getCurrentAPIPreference() == "Outpan" ? "Digit Eyes" : "Outpan")
+    }
+    
+    
+    // MARK: External URL Handling
+    
     private func openSafariWithURL(URLString: String) {
         let url = NSURL(string: URLString)
         if let href = url {
@@ -95,11 +114,8 @@ class InfoController: UIViewController, UIActionSheetDelegate {
         }
     }
     
-    // MARK: API Picking (methods on UIViewController extension)
     
-    @IBAction func toggleAPIButtonTapped(sender: AnyObject) {
-        self.setCurrentAPI(_getCurrentAPIPreference() == "Outpan" ? "Digit Eyes" : "Outpan")
-    }
+    // MARK: API Picking (methods on UIViewController extension)
     
     private func setCurrentAPI(name: String?) {
         if let selection = name {

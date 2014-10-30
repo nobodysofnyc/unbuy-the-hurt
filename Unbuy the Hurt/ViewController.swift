@@ -15,15 +15,15 @@ HTMLParserDelegate,
 ResultsViewControllerDelegate,
 InfoControllerDelegate {
     
-    let parser: HTMLParser = HTMLParser()
-    
-    var firstAppearance = true;
+    var parser: HTMLParser?
     
     var infoController: InfoController?
     
-    let scanner = ScanditSDKBarcodePicker(appKey: "synwen4yKux/jyTZR23VcUEb/f8lkwcDBU4ifYuDnRk")
+    var barcodeResult: BarcodeResult?
     
-    var barcodeResult: BarcodeResult
+    var firstAppearance = true;
+
+    let scanner = ScanditSDKBarcodePicker(appKey: "synwen4yKux/jyTZR23VcUEb/f8lkwcDBU4ifYuDnRk")
     
     var resultsViewController: ResultsViewController = {
         let storyboard = UIStoryboard(name: "ResultsViewController", bundle: nil)
@@ -37,17 +37,13 @@ InfoControllerDelegate {
         return handler
     }()
     
-    // MARK: Initializers
     
-    required init(coder aDecoder: NSCoder) {
-        barcodeResult = ("","")
-        super.init(coder: aDecoder)
-        parser.delegate = self;
-    }
+    // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.blackColor()
+        
+        setup()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -61,15 +57,28 @@ InfoControllerDelegate {
         }
     }
     
+    
+    // MARK: Setup
+    
+    func setup() {
+        setupHTMLParser()
+        self.view.backgroundColor = UIColor.blackColor()
+    }
+    
+    func setupHTMLParser() {
+        parser = HTMLParser()
+        parser?.delegate = self
+    }
+    
+    private func setupBarcodePicker() {
+        scanner.overlayController.delegate = self
+        showScanner(false)
+        startScanning()
+    }
+    
     func handleBarcode(code: String) {
         let api: BarcodeHandlers = _getCurrentAPIPreference() == "Outpan" ? .Outpan : .DigitEyes
         barcodeHandler.handleBarcode(code, handler: api)
-    }
-    
-    func transitionToResults() {
-        resultsViewController.delegate = self
-        addContentViewController(resultsViewController)
-        hideScanner(false)
     }
     
     // MARK: IBAction
@@ -93,17 +102,16 @@ InfoControllerDelegate {
 
     // MARK: Show results state
     
-    func showTested(name: String?) {
-        resultsViewController.updateForState(.Positive, name: name)
+    func showResults(state: ResultsState, text: String?) {
+        resultsViewController.updateForState(state, name: text)
+    }
+
+    func transitionToResultsScreen() {
+        resultsViewController.delegate = self
+        addContentViewController(resultsViewController)
+        hideScanner(false)
     }
     
-    func showNotTested(name: String?) {
-        resultsViewController.updateForState(.Negative, name: name)
-    }
-    
-    func showProductNotFound() {
-        resultsViewController.updateForState(.Neutral, name: "Unknown")
-    }
     
     // MARK: Scanner state
     
@@ -123,24 +131,20 @@ InfoControllerDelegate {
         self.scanner.stopScanning()
     }
     
-    // MARK: Setup
-
-    private func setupBarcodePicker() {
-        scanner.overlayController.delegate = self
-        showScanner(false)
-        startScanning()
-    }
     
     // MARK: Delegate - BarcodeHandlerDelegate
     
     func didReceiveBarcodeInformation(info: BarcodeResult) {
         barcodeResult = info
-        parser.parseHTML()
+        if let p = parser {
+            p.parseHTML()
+        }
     }
     
     func didFailToReceiveBarcodeInformationWithError(errorMessage: String?) {
-        self.showProductNotFound()
+        showResults(.Neutral, text: nil)
     }
+    
     
     // MARK: Delegate - HTMLParserDelegate
     
@@ -151,12 +155,12 @@ InfoControllerDelegate {
         let brands = data["brands"] as Array<String>
         
         var brandName = ""
-        if let brand = self.barcodeResult.brandName {
+        if let brand = self.barcodeResult?.brandName {
             brandName = brand.sterilize()
         }
         
         var companyName = ""
-        if let company = self.barcodeResult.companyName {
+        if let company = self.barcodeResult?.companyName {
             companyName = company.sterilize()
             unsterilizedCompanyName = company
         }
@@ -186,11 +190,12 @@ InfoControllerDelegate {
         }
         
         if tested {
-            showTested(unsterilizedCompanyName)
+            showResults(.Positive, text: unsterilizedCompanyName)
         } else {
-            showNotTested(unsterilizedCompanyName)
+            showResults(.Negative, text: unsterilizedCompanyName)
         }
     }
+    
     
     // MARK: Delegate - ScanditSDKOverlayControllerDelegate
 
@@ -198,7 +203,7 @@ InfoControllerDelegate {
         stopScanning()
         let barcode: AnyObject? = scanner["barcode"];
         if let code = barcode as? String {
-            self.transitionToResults()
+            self.transitionToResultsScreen()
             handleBarcode(code)
         }
     }
@@ -209,6 +214,7 @@ InfoControllerDelegate {
     func scanditSDKOverlayController(overlayController: ScanditSDKOverlayController!, didManualSearch text: String!) {
         
     }
+    
     
     // MARK: Delegate - ResultsViewControllerDelegate
     
@@ -233,6 +239,7 @@ InfoControllerDelegate {
             return ()
         })
     }
+    
     
     // MARK: Delegate - InfoControllerDelegate
     
