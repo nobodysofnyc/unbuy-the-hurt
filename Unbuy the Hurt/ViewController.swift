@@ -54,6 +54,7 @@ InfoControllerDelegate {
         if firstAppearance {
             firstAppearance = false
             setupBarcodePicker()
+            view.backgroundColor = UIColor.blackColor()
         }
     }
     
@@ -62,7 +63,7 @@ InfoControllerDelegate {
     
     func setup() {
         setupHTMLParser()
-        self.view.backgroundColor = UIColor.blackColor()
+        self.view.backgroundColor = UIColor.uth_lightGreen()
     }
     
     func setupHTMLParser() {
@@ -179,13 +180,33 @@ InfoControllerDelegate {
         if !tested {
             for i in 0...(companies.count - 1) {
                 let name: String = companies[i] as String
+                
                 if companyName == "colgatepalmoliveco" {
                     companyName = "colgatepalmolive"
                 }
+                
+                // begin the shit
+                if companyName == "pg" {
+                    companyName = "proctergamble"
+                }
+                if companyName == "colgatepalmolivecompany" {
+                    companyName = "colgatepalmolive"
+                }
+                if companyName == "henkelcompany" {
+                    companyName = "henkel"
+                }
+                if companyName == "thecloroxpetproductscompany" {
+                    companyName = "thecloroxcompany"
+                }
+                if companyName == "reckittbenckiserinc" {
+                    companyName = "reckittbenckiser"
+                }
+                
                 if brandName == name || companyName == name {
                     tested = true
                     break
                 }
+                println(name)
             }
         }
         

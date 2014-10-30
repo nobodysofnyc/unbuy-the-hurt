@@ -74,7 +74,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAl-7h-ySz">
                     <rect key="frame" x="532" y="532" width="60" height="60"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info" translatesAutoresizingMaskIntoConstraints="NO" id="IDF-Gp-EIa">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info-results" translatesAutoresizingMaskIntoConstraints="NO" id="IDF-Gp-EIa">
                             <rect key="frame" x="14" y="13" width="33" height="33"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="33" id="0sP-Gi-YdX"/>
@@ -123,7 +123,7 @@
         </view>
     </objects>
     <resources>
-        <image name="info" width="33" height="33"/>
+        <image name="info-results" width="33" height="33"/>
         <image name="yes" width="89" height="89"/>
     </resources>
 </document>

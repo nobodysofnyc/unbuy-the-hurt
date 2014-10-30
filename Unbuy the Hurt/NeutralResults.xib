@@ -76,7 +76,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5p-VF-DeS">
                     <rect key="frame" x="532" y="532" width="60" height="60"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info" translatesAutoresizingMaskIntoConstraints="NO" id="af0-gE-sPX">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info-results" translatesAutoresizingMaskIntoConstraints="NO" id="af0-gE-sPX">
                             <rect key="frame" x="14" y="13" width="33" height="33"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="33" id="0KP-1v-O4g"/>
@@ -121,7 +121,7 @@
         </view>
     </objects>
     <resources>
-        <image name="info" width="33" height="33"/>
+        <image name="info-results" width="33" height="33"/>
         <image name="unknown" width="89" height="89"/>
     </resources>
 </document>
