@@ -33,15 +33,8 @@ class HTMLParser: NSObject {
         return TFHpple()
     }()
     
-    override init() {
-        super.init()
-        var parser = self.parser
-    }
-    
     func parseHTML() {
-
         if let cache : Dictionary<String, AnyObject> = cachedResuts() as? Dictionary<String,AnyObject> {
-            // TODO: bust cache
             if let cacheDate: NSDate = cache["date"] as? NSDate {
                 if NSDate().timeIntervalSinceDate(cacheDate) > 60 * 60 * 24 {
                     fetchAndCacheHTML()
@@ -49,7 +42,6 @@ class HTMLParser: NSObject {
                     self.delegate?.didFinishParsingHTML(cache)
                 }
             }
-
         } else {
             fetchAndCacheHTML()
         }
@@ -117,7 +109,7 @@ class HTMLParser: NSObject {
     }
     
     private func cacheResults(data: Dictionary<String, AnyObject>) {
-        let written = (data as NSDictionary).writeToFile(filePath(), atomically: true)
+        (data as NSDictionary).writeToFile(filePath(), atomically: true)
     }
     
     private func cachedResuts() -> NSDictionary? {
