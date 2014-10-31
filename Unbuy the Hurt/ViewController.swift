@@ -207,6 +207,9 @@ InfoControllerDelegate {
                 if companyName == "reckittbenckiserinc" {
                     companyName = "reckittbenckiser"
                 }
+                if companyName == "marsincorporated" {
+                    companyName = "mars"
+                }
                 
                 if brandName == name || companyName == name {
                     tested = true
