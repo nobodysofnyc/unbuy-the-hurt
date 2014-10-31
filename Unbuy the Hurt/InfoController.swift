@@ -17,6 +17,8 @@ class InfoController: UIViewController, MFMailComposeViewControllerDelegate, UIN
     
     var delegate: InfoControllerDelegate?
     
+    var overlay: UIView?
+    
     let animateInDuration  = 0.3
     let animateOutDuration = 0.3
     
@@ -97,10 +99,23 @@ class InfoController: UIViewController, MFMailComposeViewControllerDelegate, UIN
         openSafariWithURL("http://veganrabbit.com/list-of-companies-that-do-test-on-animals/")
     }
     
-    @IBAction func toggleAPIButtonTapped(sender: AnyObject) {
+    @IBAction func toggleAPIButtonTapped(sender: UIButton!) {
         setCurrentAPI(_getCurrentAPIPreference() == "Outpan" ? "Digit Eyes" : "Outpan")
     }
     
+    @IBAction func closeButtonTouchDown(sender: UIButton!) {
+        overlay = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+        overlay?.backgroundColor = UIColor.clearColor()
+        if let overlayView = overlay {
+            view.addSubview(overlayView)
+        }
+    }
+    
+    @IBAction func closeButtonTouchOutside(sender: UIButton!) {
+        if let overlayView = overlay {
+            overlayView.removeFromSuperview()
+        }
+    }
     
     // MARK: Email 
     

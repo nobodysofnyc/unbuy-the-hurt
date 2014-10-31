@@ -20,13 +20,12 @@
                                 <constraint firstAttribute="height" constant="90" id="bio-OC-4kY"/>
                             </constraints>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1Y-pt-7V6" customClass="NewScanButton" customModule="Unbuy_the_Hurt" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1Y-pt-7V6" customClass="NewScanButton" customModule="Unbuy_the_Hurt" customModuleProvider="target">
                             <rect key="frame" x="202" y="233" width="180" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="180" id="Avz-6J-270"/>
                                 <constraint firstAttribute="height" constant="44" id="vYv-ax-Uoj"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="19"/>
                             <state key="normal" title="New Scan">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -84,7 +83,7 @@
                                 <constraint firstAttribute="width" constant="33" id="muF-BL-Ae9"/>
                             </constraints>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MvX-Ui-Q0o">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MvX-Ui-Q0o">
                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                             <state key="normal">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

@@ -11,8 +11,22 @@ import UIKit
 class NewScanButton: UIButton {
 
     override func awakeFromNib() {
-        self.layer.cornerRadius = self.frame.height / 2.0
-        self.layer.borderWidth = 2.0
-        self.layer.borderColor = UIColor.whiteColor().CGColor
+        layer.cornerRadius = frame.height / 2.0
+        layer.borderWidth = 2.0
+        layer.borderColor = UIColor.whiteColor().CGColor
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        super.touchesBegan(touches, withEvent: event)
+        UIView.animateWithDuration(0.15, animations: {
+            self.alpha = 0.4
+        })
+    }
+    
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        super.touchesEnded(touches, withEvent: event)
+        UIView.animateWithDuration(0.2, animations: {
+            self.alpha = 1.0
+        })
     }
 }

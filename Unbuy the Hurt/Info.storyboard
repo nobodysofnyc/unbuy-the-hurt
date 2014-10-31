@@ -64,7 +64,7 @@
                                                 <constraint firstAttribute="height" constant="33" id="hfE-Fg-9J0"/>
                                             </constraints>
                                         </imageView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gUG-yP-PXZ" userLabel="Visit">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gUG-yP-PXZ" userLabel="Visit" customClass="CellView" customModule="Unbuy_the_Hurt" customModuleProvider="target">
                                             <rect key="frame" x="23" y="197" width="554" height="44"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visit veganrabbit.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASJ-VV-wp6">
@@ -83,7 +83,7 @@
                                                         <constraint firstAttribute="height" constant="12" id="raz-tr-7ng"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXt-69-R6Z">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXt-69-R6Z" customClass="CellButton" customModule="Unbuy_the_Hurt" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="554" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="je8-WG-ucH"/>
@@ -113,10 +113,10 @@
                                                 <constraint firstItem="HXt-69-R6Z" firstAttribute="leading" secondItem="gUG-yP-PXZ" secondAttribute="leading" id="vfs-Wc-GY7"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6YM-9K-Ae4" userLabel="Email">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6YM-9K-Ae4" userLabel="Email" customClass="CellView" customModule="Unbuy_the_Hurt" customModuleProvider="target">
                                             <rect key="frame" x="23" y="311" width="554" height="30"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeb-FS-MDZ">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeb-FS-MDZ" customClass="CellButton" customModule="Unbuy_the_Hurt" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="554" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="0Te-JK-bmy"/>
@@ -178,13 +178,15 @@
                                                         <constraint firstAttribute="height" constant="33" id="Vq8-nz-IBv"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNg-9h-7L4">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNg-9h-7L4">
                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="closeButtonTapped:" destination="YM8-ct-8nQ" eventType="touchUpInside" id="aQh-tb-WPQ"/>
+                                                        <action selector="closeButtonTouchDown:" destination="YM8-ct-8nQ" eventType="touchDown" id="OZ2-Lm-xUN"/>
+                                                        <action selector="closeButtonTouchOutside:" destination="YM8-ct-8nQ" eventType="touchUpOutside" id="wa6-95-YwA"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
