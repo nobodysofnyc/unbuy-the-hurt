@@ -11,18 +11,18 @@ import UIKit
 class CellView: UIView {
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        super.touchesBegan(touches, withEvent: event)
         fadeOut()
+        super.touchesBegan(touches, withEvent: event)
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-        super.touchesEnded(touches, withEvent: event)
         fadeIn()
+        super.touchesEnded(touches, withEvent: event)
     }
     
     override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
-        super.touchesCancelled(touches, withEvent: event)
         fadeIn()
+        super.touchesCancelled(touches, withEvent: event)
     }
     
     private func fadeIn() {
@@ -33,7 +33,9 @@ class CellView: UIView {
                 })
             }
         }
-
+        UIView.animateWithDuration(0.15, animations: {
+            self.backgroundColor = UIColor.clearColor()
+        })
     }
     
     private func fadeOut() {

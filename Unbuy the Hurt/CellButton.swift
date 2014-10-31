@@ -11,17 +11,17 @@ import UIKit
 class CellButton: UIButton {
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        super.touchesBegan(touches, withEvent: event)
         nextResponder()?.touchesBegan(touches, withEvent: event)
+        super.touchesBegan(touches, withEvent: event)
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-        super.touchesEnded(touches, withEvent: event)
         nextResponder()?.touchesEnded(touches, withEvent: event)
+        super.touchesEnded(touches, withEvent: event)
     }
     
     override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
-        super.touchesCancelled(touches, withEvent: event)
         nextResponder()?.touchesCancelled(touches, withEvent: event)
+        super.touchesCancelled(touches, withEvent: event)
     }
 }

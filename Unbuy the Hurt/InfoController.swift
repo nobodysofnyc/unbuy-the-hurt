@@ -92,6 +92,18 @@ class InfoController: UIViewController, MFMailComposeViewControllerDelegate, UIN
         animateOut()
     }
 
+    @IBAction func pledgeButtonTapped(sender: AnyObject) {
+        openSafariWithURL("https://secure.peta.org/site/Advocacy?cmd=display&page=UserAction&id=2061")
+    }
+    
+    @IBAction func littleThingsButtonTapped(sender: AnyObject) {
+        openSafariWithURL("http://www.navs.org/cruelty-free/little-things-mean-a-lot")
+    }
+    
+    @IBAction func helpAnimalsButtonTapped(sender: AnyObject) {
+        openSafariWithURL("http://www.humanesociety.org/issues/biomedical_research/help_animals_research.html")
+    }
+
     @IBAction func emailButtonTapped(sender: AnyObject) {
         showEmailForm()
     }
