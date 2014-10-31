@@ -20,4 +20,8 @@ class CellButton: UIButton {
         nextResponder()?.touchesEnded(touches, withEvent: event)
     }
     
+    override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
+        super.touchesCancelled(touches, withEvent: event)
+        nextResponder()?.touchesCancelled(touches, withEvent: event)
+    }
 }

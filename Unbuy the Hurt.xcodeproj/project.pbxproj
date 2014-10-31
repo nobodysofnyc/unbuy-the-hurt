@@ -118,13 +118,6 @@
 		2725A1A11A003D8D003F06C1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				274697E71A0094FB00D38950 /* NewScanButton.swift */,
-				274697E91A00970800D38950 /* IconImageView.swift */,
-				2792ECE91A0139D8006D7D3B /* IconImageViewRed.swift */,
-				2792ECEB1A013A54006D7D3B /* IconImageViewGreen.swift */,
-				2792ECED1A013A79006D7D3B /* IconImageViewGray.swift */,
-				2787870E1A034BDD0089D7CA /* CellView.swift */,
-				2787870C1A034BBA0089D7CA /* CellButton.swift */,
 				2768046619FDDB090019629D /* Main.storyboard */,
 				2768046B19FDDB090019629D /* LaunchScreen.xib */,
 				274697DF1A006D5D00D38950 /* ResultsViewController.storyboard */,
@@ -132,6 +125,13 @@
 				274697E11A00737400D38950 /* PositiveResults.xib */,
 				274697E31A008E9100D38950 /* NegativeResults.xib */,
 				274697E51A008E9900D38950 /* NeutralResults.xib */,
+				274697E71A0094FB00D38950 /* NewScanButton.swift */,
+				274697E91A00970800D38950 /* IconImageView.swift */,
+				2792ECE91A0139D8006D7D3B /* IconImageViewRed.swift */,
+				2792ECEB1A013A54006D7D3B /* IconImageViewGreen.swift */,
+				2792ECED1A013A79006D7D3B /* IconImageViewGray.swift */,
+				2787870E1A034BDD0089D7CA /* CellView.swift */,
+				2787870C1A034BBA0089D7CA /* CellButton.swift */,
 				27344FD01A0159DC00CD4F9B /* Images.xcassets */,
 			);
 			name = UI;

@@ -12,22 +12,35 @@ class CellView: UIView {
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         super.touchesBegan(touches, withEvent: event)
-        
-        for view in subviews {
-            if let v: UIView = view as? UIView {
-                UIView.animateWithDuration(0.15, animations: {
-                    v.alpha = 0.4
-                })
-            }
-        }
+        fadeOut()
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
         super.touchesEnded(touches, withEvent: event)
+        fadeIn()
+    }
+    
+    override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
+        super.touchesCancelled(touches, withEvent: event)
+        fadeIn()
+    }
+    
+    private func fadeIn() {
         for view in subviews {
             if let v: UIView = view as? UIView {
                 UIView.animateWithDuration(0.15, animations: {
                     v.alpha = 1.0
+                })
+            }
+        }
+
+    }
+    
+    private func fadeOut() {
+        for view in subviews {
+            if let v: UIView = view as? UIView {
+                UIView.animateWithDuration(0.15, animations: {
+                    v.alpha = 0.4
                 })
             }
         }

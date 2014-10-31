@@ -24,7 +24,7 @@ class InfoController: UIViewController, MFMailComposeViewControllerDelegate, UIN
     
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var toggleAPIButton: UIButton!
-    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     // MARK: Lifecycle
     
@@ -52,6 +52,7 @@ class InfoController: UIViewController, MFMailComposeViewControllerDelegate, UIN
     private func setupInitialUI() {
         view.backgroundColor = UIColor.clearColor()
         view.alpha = 0.0
+        scrollView.contentSize = CGSize(width: view.frame.size.width, height: scrollView.contentSize.height)
     }
     
     private func setVersionString() {

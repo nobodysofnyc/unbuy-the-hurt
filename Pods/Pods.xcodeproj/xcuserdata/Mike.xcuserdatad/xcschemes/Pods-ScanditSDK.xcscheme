@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F2D226048CF21E423F14A43D"
+               BlueprintIdentifier = "A234F22BABC7CFE6FD53E204"
                BuildableName = "libPods-ScanditSDK.a"
                BlueprintName = "Pods-ScanditSDK"
                ReferencedContainer = "container:Pods.xcodeproj">
