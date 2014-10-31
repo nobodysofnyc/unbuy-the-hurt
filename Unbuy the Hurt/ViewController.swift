@@ -174,9 +174,6 @@ InfoControllerDelegate {
 
         for i in 0...(brands.count - 1) {
             let name: String = brands[i] as String
-            if companyName == "lysolbrand" {
-                companyName = "lysol"
-            }
             if brandName == name || companyName == name {
                 tested = true
                 break
@@ -186,31 +183,7 @@ InfoControllerDelegate {
         if !tested {
             for i in 0...(companies.count - 1) {
                 let name: String = companies[i] as String
-                
-                if companyName == "colgatepalmoliveco" {
-                    companyName = "colgatepalmolive"
-                }
-                
-                // begin the shit
-                if companyName == "pg" {
-                    companyName = "proctergamble"
-                }
-                if companyName == "colgatepalmolivecompany" {
-                    companyName = "colgatepalmolive"
-                }
-                if companyName == "henkelcompany" {
-                    companyName = "henkel"
-                }
-                if companyName == "thecloroxpetproductscompany" {
-                    companyName = "thecloroxcompany"
-                }
-                if companyName == "reckittbenckiserinc" {
-                    companyName = "reckittbenckiser"
-                }
-                if companyName == "marsincorporated" {
-                    companyName = "mars"
-                }
-                
+                companyName = someSortOfCompanyNameFilter(companyName)
                 if brandName == name || companyName == name {
                     tested = true
                     break
@@ -299,6 +272,35 @@ InfoControllerDelegate {
     
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    func someSortOfCompanyNameFilter(name: String) -> String {
+        if name == "lysolbrand" {
+            return "lysol"
+        }
+        if name == "colgatepalmoliveco" {
+            return "colgatepalmolive"
+        }
+        if name == "pg" {
+            return "proctergamble"
+        }
+        if name == "colgatepalmolivecompany" {
+            return "colgatepalmolive"
+        }
+        if name == "henkelcompany" {
+            return "henkel"
+        }
+        if name == "thecloroxpetproductscompany" {
+            return "thecloroxcompany"
+        }
+        if name == "reckittbenckiserinc" {
+            return "reckittbenckiser"
+        }
+        if name == "marsincorporated" {
+            return "mars"
+        }
+        
+        return name
     }
 
 }
