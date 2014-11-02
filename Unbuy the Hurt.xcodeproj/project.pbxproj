@@ -25,6 +25,7 @@
 		274697E61A008E9900D38950 /* NeutralResults.xib in Resources */ = {isa = PBXBuildFile; fileRef = 274697E51A008E9900D38950 /* NeutralResults.xib */; };
 		274697E81A0094FB00D38950 /* NewScanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274697E71A0094FB00D38950 /* NewScanButton.swift */; };
 		274697EA1A00970800D38950 /* IconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274697E91A00970800D38950 /* IconImageView.swift */; };
+		274E370C1A05DF9D00B68893 /* InfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E370B1A05DF9D00B68893 /* InfoTableViewController.swift */; };
 		2768046319FDDB090019629D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768046219FDDB090019629D /* AppDelegate.swift */; };
 		2768046519FDDB090019629D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768046419FDDB090019629D /* ViewController.swift */; };
 		2768046819FDDB090019629D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2768046619FDDB090019629D /* Main.storyboard */; };
@@ -71,6 +72,7 @@
 		274697E51A008E9900D38950 /* NeutralResults.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NeutralResults.xib; sourceTree = "<group>"; };
 		274697E71A0094FB00D38950 /* NewScanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewScanButton.swift; sourceTree = "<group>"; };
 		274697E91A00970800D38950 /* IconImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconImageView.swift; sourceTree = "<group>"; };
+		274E370B1A05DF9D00B68893 /* InfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewController.swift; sourceTree = "<group>"; };
 		2768045D19FDDB090019629D /* Unbuy the Hurt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unbuy the Hurt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2768046119FDDB090019629D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2768046219FDDB090019629D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				2725A1981A0030F1003F06C1 /* OutPanAPIHandler.swift */,
 				2725A19A1A00346B003F06C1 /* DigitEyesAPIHandler.swift */,
 				27344FD21A016EE500CD4F9B /* InfoController.swift */,
+				274E370B1A05DF9D00B68893 /* InfoTableViewController.swift */,
 				2725A1A21A003EA5003F06C1 /* ResultsView.swift */,
 				2725A1A11A003D8D003F06C1 /* UI */,
 				2792ECEF1A01483E006D7D3B /* Extensions */,
@@ -387,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				274E370C1A05DF9D00B68893 /* InfoTableViewController.swift in Sources */,
 				274697DD1A006A4100D38950 /* ResultsViewController.swift in Sources */,
 				2792ECEA1A0139D8006D7D3B /* IconImageViewRed.swift in Sources */,
 				2792ECF51A014D88006D7D3B /* UIViewController.swift in Sources */,

@@ -16,10 +16,17 @@ extension UIViewController {
         viewController.willMoveToParentViewController(self)
     }
     
-    func addContentViewController(viewController: UIViewController, atIndex index:Int) {
+    func addContentViewController(viewController: UIViewController, atIndex index: Int) {
         self.addChildViewController(viewController)
         viewController.view.frame = self.view.bounds
         self.view.insertSubview(viewController.view, atIndex: index)
+        viewController.willMoveToParentViewController(self)
+    }
+    
+    func addContentViewController(viewController: UIViewController, toView view: UIView) {
+        self.addChildViewController(viewController)
+        viewController.view.frame = view.bounds
+        view.addSubview(viewController.view)
         viewController.willMoveToParentViewController(self)
     }
     

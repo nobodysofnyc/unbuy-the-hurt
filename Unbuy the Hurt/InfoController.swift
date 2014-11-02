@@ -22,9 +22,7 @@ class InfoController: UIViewController, MFMailComposeViewControllerDelegate, UIN
     let animateInDuration  = 0.3
     let animateOutDuration = 0.3
     
-    @IBOutlet weak var versionLabel: UILabel!
-    @IBOutlet weak var toggleAPIButton: UIButton!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var tableContainerView: UIView!
     
     // MARK: Lifecycle
     
@@ -47,12 +45,13 @@ class InfoController: UIViewController, MFMailComposeViewControllerDelegate, UIN
         setupInitialUI()   // set initial colors and alphas
         setVersionString() // set version
         setCurrentAPI(nil) // set current API selection
+        addTableView()     // add table view
     }
     
     private func setupInitialUI() {
         view.backgroundColor = UIColor.clearColor()
         view.alpha = 0.0
-        scrollView.contentSize = CGSize(width: view.frame.size.width, height: scrollView.contentSize.height)
+//        scrollView.contentSize = CGSize(width: view.frame.size.width, height: scrollView.contentSize.height)
     }
     
     private func setVersionString() {
@@ -64,7 +63,13 @@ class InfoController: UIViewController, MFMailComposeViewControllerDelegate, UIN
             }
         }
         
-        versionLabel.text = versionString
+//        versionLabel.text = versionString
+    }
+    
+    private func addTableView() {
+        let storyboard = UIStoryboard(name: "Info", bundle: nil)
+        let viewController: InfoTableViewController = storyboard.instantiateViewControllerWithIdentifier("InfoTableView") as InfoTableViewController
+        addContentViewController(viewController, toView: tableContainerView)
     }
     
     
@@ -130,6 +135,7 @@ class InfoController: UIViewController, MFMailComposeViewControllerDelegate, UIN
         }
     }
     
+    
     // MARK: Email 
     
     private func showEmailForm() {
@@ -164,7 +170,7 @@ class InfoController: UIViewController, MFMailComposeViewControllerDelegate, UIN
     }
     
     private func _setAPIButtonTitle(name: String!) {
-        toggleAPIButton.setTitle("UPC Database: \(name)", forState: .Normal)
+//        toggleAPIButton.setTitle("UPC Database: \(name)", forState: .Normal)
     }
     
     
