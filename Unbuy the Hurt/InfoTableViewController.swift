@@ -26,11 +26,11 @@ class InfoTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch (section) {
         case 0:
-            return headerForAttributeSection().systemLayoutSizeFittingSize(CGSizeZero())
+            return headerForAttributeSection().systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
         case 1:
-            return headerForLearningSection().systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+            return headerForLearningSection().systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
         case 2:
-            return headerForContactSection().systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+            return headerForContactSection().systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
         default:
             return 30.0
         }
@@ -40,6 +40,10 @@ class InfoTableViewController: UITableViewController {
         let header = UIView()
         let label = labelWithText("Company and product names are referenced from VeganRabbit's website")
         header.addSubview(label)
+        
+        let height = label.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
+        
+        header.frame = CGRectMake(0, 0, view.frame.size.width, height)
         
         return header
     }

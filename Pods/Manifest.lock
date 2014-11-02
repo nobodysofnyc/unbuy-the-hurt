@@ -24,9 +24,9 @@ PODS:
   - ScanditSDK (4.1.2)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.4)
-  - hpple (~> 0.2)
-  - ScanditSDK (~> 4.1)
+  - AFNetworking
+  - hpple
+  - ScanditSDK
 
 SPEC CHECKSUMS:
   AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
