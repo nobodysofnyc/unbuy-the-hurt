@@ -26,6 +26,7 @@
                                 <constraint firstAttribute="width" constant="180" id="Avz-6J-270"/>
                                 <constraint firstAttribute="height" constant="44" id="vYv-ax-Uoj"/>
                             </constraints>
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="19"/>
                             <state key="normal" title="New Scan">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
