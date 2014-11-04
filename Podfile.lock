@@ -20,16 +20,19 @@ PODS:
   - AFNetworking/UIKit (2.4.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - GoogleAnalytics-iOS-SDK (3.0.9)
   - hpple (0.2.0)
   - ScanditSDK (4.1.2)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.4)
-  - hpple (~> 0.2)
-  - ScanditSDK (~> 4.1)
+  - AFNetworking
+  - GoogleAnalytics-iOS-SDK
+  - hpple
+  - ScanditSDK
 
 SPEC CHECKSUMS:
   AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
+  GoogleAnalytics-iOS-SDK: d9e198b1f955259a72886769be7377cdfcdb2250
   hpple: f4eb7c21a8db83ec264e5d614ec7509e10e5adec
   ScanditSDK: 5f908ba8d6018f72558aabb65b9eff367f60e93e
 

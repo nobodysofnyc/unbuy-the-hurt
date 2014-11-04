@@ -8,4 +8,6 @@
 #import "ScanditSDK/ScanditSDKOverlayController.h"
 #import "hpple/TFHpple.h"
 #import "NSString+SHA1.h"
+#import "GoogleAnalytics-iOS-SDK/GAI.h"
+#import "GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h"
 

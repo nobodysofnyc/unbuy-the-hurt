@@ -105,6 +105,18 @@ InfoControllerDelegate {
         if let viewController = resultsViewController {
             viewController.updateForState(state, name: text)
         }
+        
+        let tracker = GAI.sharedInstance().defaultTracker
+        var values: NSMutableDictionary?
+        
+        let action = state == .Positive ? "positive" : "negative"
+        if let val = text {
+            values = GAIDictionaryBuilder.createEventWithCategory("Results", action: action, label: val, value: nil).build()
+        } else {
+            values = GAIDictionaryBuilder.createEventWithCategory("Results", action: action, label: "", value: nil).build()
+        }
+        
+        tracker.send(values)
     }
 
     func transitionToResultsScreen() {
@@ -148,6 +160,9 @@ InfoControllerDelegate {
     
     func didFailToReceiveBarcodeInformationWithError(errorMessage: String?) {
         showResults(.Neutral, text: nil)
+        
+        let tracker = GAI.sharedInstance().defaultTracker
+        GAIDictionaryBuilder.createEventWithCategory("Results", action: "displayed", label: "undefined", value: nil)
     }
     
     
@@ -215,6 +230,9 @@ InfoControllerDelegate {
             self.transitionToResultsScreen()
             handleBarcode(code)
         }
+        
+        let tracker = GAI.sharedInstance().defaultTracker
+        GAIDictionaryBuilder.createEventWithCategory("Scanner", action: "scanned", label: "", value: nil)
     }
     
     func scanditSDKOverlayController(overlayController: ScanditSDKOverlayController!, didCancelWithStatus status: [NSObject : AnyObject]!) {

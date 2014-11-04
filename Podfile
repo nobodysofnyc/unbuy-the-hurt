@@ -1,4 +1,5 @@
-pod 'ScanditSDK', '~> 4.1'
-pod 'hpple', '~> 0.2'
-pod 'AFNetworking', '~> 2.4'
+pod 'ScanditSDK'
+pod 'hpple'
+pod 'AFNetworking'
+pod 'GoogleAnalytics-iOS-SDK'
 # pod 'Reveal-iOS-SDK', '~> 1.0'

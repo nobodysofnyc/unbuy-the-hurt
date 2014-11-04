@@ -9,24 +9,10 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iPhone 5" translatesAutoresizingMaskIntoConstraints="NO" id="vP1-5b-YNk">
-                    <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
-                </imageView>
-            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="vP1-5b-YNk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="1Xe-yl-EEN"/>
-                <constraint firstItem="vP1-5b-YNk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6rx-va-abA"/>
-                <constraint firstAttribute="bottom" secondItem="vP1-5b-YNk" secondAttribute="bottom" id="H7R-C6-mty"/>
-                <constraint firstAttribute="trailing" secondItem="vP1-5b-YNk" secondAttribute="trailing" id="cm1-Ex-xdA"/>
-            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="548" y="455"/>
+            <point key="canvasLocation" x="550" y="433"/>
         </view>
     </objects>
-    <resources>
-        <image name="iPhone 5" width="640" height="1136"/>
-    </resources>
 </document>

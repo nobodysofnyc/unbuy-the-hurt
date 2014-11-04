@@ -1,6 +1,6 @@
 #include "Pods-ScanditSDK.xcconfig"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/ScanditSDK" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/ScanditSDK" "${PODS_ROOT}/Headers/Public/hpple"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/ScanditSDK" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/GoogleAnalytics-iOS-SDK" "${PODS_ROOT}/Headers/Public/ScanditSDK" "${PODS_ROOT}/Headers/Public/hpple"
 LIBRARY_SEARCH_PATHS = ${PODS_SCANDITSDK_LIBRARY_SEARCH_PATHS}
 OTHER_LDFLAGS = ${PODS_SCANDITSDK_OTHER_LDFLAGS} -ObjC
 PODS_ROOT = ${SRCROOT}
