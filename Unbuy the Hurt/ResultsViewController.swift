@@ -43,9 +43,9 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
         return indicator
     }()
     
-    @IBOutlet weak var screenshotContainerView: UIView!
+    var blurView: UIVisualEffectView?
     
-    @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var screenshotContainerView: UIView!
     
     var delegate: ResultsViewControllerDelegate?
     
@@ -53,8 +53,17 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blackColor()
         
+        let blurEffect = UIBlurEffect(style: .Light)
+        blurView = UIVisualEffectView(effect: blurEffect)
+        
         loader.center = self.view.center
-        blurView.contentView.addSubview(loader)
+        
+        if let blur = blurView {
+            blur.frame = view.bounds
+            blur.alpha = 0.0
+            view.addSubview(blur)
+            blur.contentView.addSubview(loader)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -62,7 +71,10 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
 
         addScreenshot()
         delegate?.didFinishPreparing() // hide scanner
-        blurView.contentView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.7)
+        
+        if let blur = blurView {
+            blur.contentView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.7)
+        }
         
         loader.startAnimating()
         
@@ -74,7 +86,9 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
         super.viewDidAppear(animated)
 
         UIView.animateWithDuration(0.4, animations: {
-            self.blurView.alpha = 1.0
+            if let blur = self.blurView {
+                blur.alpha = 1.0
+            }
             if let screenshot = self.screenshotView {
                 screenshot.transform = CGAffineTransformMakeScale(0.92, 0.92)
             }
@@ -107,7 +121,10 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
                 if let stateView = self.currentStateView {
                     stateView.alpha = 1.0
                 }
-                self.blurView.contentView.backgroundColor = self.colorForState(state).colorWithAlphaComponent(0.6)
+                
+                if let blur = self.blurView {
+                    blur.contentView.backgroundColor = self.colorForState(state).colorWithAlphaComponent(0.6)
+                }
             })
         }
     }
@@ -132,7 +149,9 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
             }
         }) { (finished: Bool) -> Void in
             UIView.animateWithDuration(0.4, animations: {
-                self.blurView.alpha = 0.0
+                if let blur = self.blurView {
+                    blur.alpha = 0.0
+                }
             }, completion: { (finished: Bool) -> Void in
                 if let complete = onComplete {
                     complete()
