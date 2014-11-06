@@ -504,7 +504,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.15574807960893855" green="0.15574807960893855" blue="0.15574807960893855" alpha="0.72999999999999998" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.15574807960893855" green="0.15574807960893855" blue="0.15574807960893855" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="jQB-9H-fwu" firstAttribute="top" secondItem="e0b-I1-LbT" secondAttribute="top" id="8dH-Ws-uWW"/>
                                     <constraint firstAttribute="bottom" secondItem="8ai-aJ-27w" secondAttribute="bottom" id="LgR-8f-5Ht"/>
@@ -520,15 +520,19 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="e0b-I1-LbT" firstAttribute="top" secondItem="CeF-jm-gLZ" secondAttribute="top" id="0Td-wE-yIP"/>
+                            <constraint firstItem="e0b-I1-LbT" firstAttribute="leading" secondItem="CeF-jm-gLZ" secondAttribute="leading" id="6TV-XT-Qvg"/>
+                            <constraint firstItem="EA3-Bc-cO5" firstAttribute="top" secondItem="e0b-I1-LbT" secondAttribute="bottom" id="GwR-Rf-vyJ"/>
+                            <constraint firstItem="e0b-I1-LbT" firstAttribute="top" secondItem="CeF-jm-gLZ" secondAttribute="top" id="LTT-DJ-FLV"/>
                             <constraint firstAttribute="trailing" secondItem="e0b-I1-LbT" secondAttribute="trailing" id="Uco-5p-eZ3"/>
                             <constraint firstItem="e0b-I1-LbT" firstAttribute="leading" secondItem="CeF-jm-gLZ" secondAttribute="leading" id="VkC-yp-cU5"/>
+                            <constraint firstAttribute="trailing" secondItem="e0b-I1-LbT" secondAttribute="trailing" id="j4B-Ea-Xaa"/>
                             <constraint firstItem="EA3-Bc-cO5" firstAttribute="top" secondItem="e0b-I1-LbT" secondAttribute="bottom" id="yTb-6X-bcR"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="672"/>
                     <connections>
-                        <outlet property="containerView" destination="e0b-I1-LbT" id="0HX-Cd-gS2"/>
+                        <outlet property="blurContent" destination="e0b-I1-LbT" id="mCF-VV-Fli"/>
                         <outlet property="scrollView" destination="8ai-aJ-27w" id="Dbe-iT-HXt"/>
                         <outlet property="toggleAPIButton" destination="VmR-By-WZH" id="99n-DR-kiE"/>
                         <outlet property="versionLabel" destination="N6F-0V-jRF" id="63Z-ZU-gCr"/>

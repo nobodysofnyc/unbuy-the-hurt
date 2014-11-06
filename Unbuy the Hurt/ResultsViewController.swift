@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreImage
 
 protocol ResultsViewControllerDelegate {
     func didFinishPreparing()
@@ -47,6 +48,8 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
     
     var blurView: UIVisualEffectView?
     
+    var notBlurView: UIView?
+    
     var delegate: ResultsViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -55,12 +58,22 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
         
         loader.center = self.view.center
         
-        blurView = UIVisualEffectView(effect: UIBlurEffect(style: .Light))
-        if let blur = blurView {
-            blur.frame = view.bounds
-            blur.alpha = 0.0
-            view.addSubview(blur)
-            blur.contentView.addSubview(loader)
+        if iOS8 {
+            blurView = UIVisualEffectView(effect: UIBlurEffect(style: .Light))
+            if let blur = blurView {
+                blur.frame = view.bounds
+                blur.alpha = 0.0
+                view.addSubview(blur)
+                blur.contentView.addSubview(loader)
+            }
+        } else {
+            notBlurView = UIView()
+            if let notBlur = notBlurView {
+                notBlur.frame = view.bounds
+                notBlur.alpha = 0.0
+                view.addSubview(notBlur)
+                notBlur.addSubview(loader)
+            }
         }
     }
     
@@ -71,6 +84,10 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
         delegate?.didFinishPreparing() // hide scanner
         if let blur = blurView {
             blur.contentView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.7)
+        } else {
+            if let notBlur = notBlurView {
+                notBlur.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.8)
+            }
         }
         
         loader.startAnimating()
@@ -85,9 +102,15 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
         UIView.animateWithDuration(0.4, animations: {
             if let blur = self.blurView {
                 blur.alpha = 1.0
+            } else {
+                if let notBlur = self.notBlurView {
+                    notBlur.alpha = 1.0
+                }
             }
+            
             if let screenshot = self.screenshotView {
                 screenshot.transform = CGAffineTransformMakeScale(0.92, 0.92)
+                screenshot.alpha = 0.7
             }
         })
     }
@@ -120,6 +143,10 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
                 }
                 if let blur = self.blurView {
                     blur.contentView.backgroundColor = self.colorForState(state).colorWithAlphaComponent(0.6)
+                } else {
+                    if let notBlur = self.notBlurView {
+                        notBlur.backgroundColor = self.colorForState(state).colorWithAlphaComponent(0.93)
+                    }
                 }
             })
         }
@@ -147,6 +174,10 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
             UIView.animateWithDuration(0.4, animations: {
                 if let blur = self.blurView {
                     blur.alpha = 0.0
+                } else {
+                    if let notBlur = self.notBlurView {
+                        notBlur.alpha = 0.0
+                    }
                 }
             }, completion: { (finished: Bool) -> Void in
                 if let complete = onComplete {

@@ -29,6 +29,8 @@ class InfoController: UIViewController, MFMailComposeViewControllerDelegate, UIN
     
     var blurView: UIVisualEffectView?
     
+    @IBOutlet weak var blurContent: UIView!
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -43,6 +45,14 @@ class InfoController: UIViewController, MFMailComposeViewControllerDelegate, UIN
         animateIn()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if iOS8 {
+            addVisualEffectView()
+        }
+    }
+    
     
     // MARK: Setup
     
@@ -50,13 +60,14 @@ class InfoController: UIViewController, MFMailComposeViewControllerDelegate, UIN
         setupInitialUI()   // set initial colors and alphas
         setVersionString() // set version
         setCurrentAPI(nil) // set current API selection
-        
-
     }
     
     private func setupInitialUI() {
         view.backgroundColor = UIColor.clearColor()
         view.alpha = 0.0
+    }
+    
+    private func setContentSize() {
         scrollView.contentSize = CGSize(width: view.frame.size.width, height: scrollView.contentSize.height)
     }
     
@@ -70,6 +81,17 @@ class InfoController: UIViewController, MFMailComposeViewControllerDelegate, UIN
         }
         
         versionLabel.text = versionString
+    }
+    
+    private func addVisualEffectView() {
+        blurView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
+        blurContent.backgroundColor = UIColor.clearColor()
+        if let blur = blurView {
+            view.addSubview(blurView!)
+            blur.frame = view.frame
+            blur.center = view.center
+            blur.contentView.addSubview(blurContent)
+        }
     }
     
     
