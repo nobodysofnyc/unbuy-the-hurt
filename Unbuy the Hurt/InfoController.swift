@@ -25,6 +25,9 @@ class InfoController: UIViewController, MFMailComposeViewControllerDelegate, UIN
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var toggleAPIButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var containerView: UIView!
+    
+    var blurView: UIVisualEffectView?
     
     // MARK: Lifecycle
     
@@ -47,6 +50,8 @@ class InfoController: UIViewController, MFMailComposeViewControllerDelegate, UIN
         setupInitialUI()   // set initial colors and alphas
         setVersionString() // set version
         setCurrentAPI(nil) // set current API selection
+        
+
     }
     
     private func setupInitialUI() {
