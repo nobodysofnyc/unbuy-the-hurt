@@ -7,3 +7,5 @@
 //
 
 import Foundation
+
+let iOS8 = floor(NSFoundationVersionNumber) > floor(NSFoundationVersionNumber_iOS_7_1)
