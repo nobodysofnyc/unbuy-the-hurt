@@ -27,7 +27,7 @@ class OutPanAPIHandler: NSObject {
                     info.brandName = brand
                 }
                 
-                if let manufacturer : JSONDictionary = response["attributes"] as JSONDictionary? {
+                if let manufacturer : JSONDictionary = response["attributes"] as? JSONDictionary {
                     if let company : String = manufacturer["Manufacturer"] as? String {
                         info.companyName = company
                     }

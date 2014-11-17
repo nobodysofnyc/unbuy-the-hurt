@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2713E5801A1A5FD800493F05 /* notTested.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2713E57E1A1A5FD800493F05 /* notTested.wav */; };
+		2713E5811A1A5FD800493F05 /* tested.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2713E57F1A1A5FD800493F05 /* tested.wav */; };
 		271E4B8419FDEA8C0089B0F2 /* BarcodeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271E4B8319FDEA8C0089B0F2 /* BarcodeHandler.swift */; };
 		2725A1971A002519003F06C1 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2725A1961A002519003F06C1 /* String.swift */; };
 		2725A1991A0030F1003F06C1 /* OutPanAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2725A1981A0030F1003F06C1 /* OutPanAPIHandler.swift */; };
@@ -52,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2713E57E1A1A5FD800493F05 /* notTested.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = notTested.wav; sourceTree = "<group>"; };
+		2713E57F1A1A5FD800493F05 /* tested.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tested.wav; sourceTree = "<group>"; };
 		271E4B8319FDEA8C0089B0F2 /* BarcodeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeHandler.swift; sourceTree = "<group>"; };
 		2725A1961A002519003F06C1 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2725A1981A0030F1003F06C1 /* OutPanAPIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutPanAPIHandler.swift; sourceTree = "<group>"; };
@@ -115,6 +119,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2713E5821A1A5FDD00493F05 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				2713E57E1A1A5FD800493F05 /* notTested.wav */,
+				2713E57F1A1A5FD800493F05 /* tested.wav */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
 		2725A1A11A003D8D003F06C1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +184,7 @@
 				27C424F91A0B1199003005A3 /* iOSVersion.swift */,
 				2725A1A11A003D8D003F06C1 /* UI */,
 				2792ECEF1A01483E006D7D3B /* Extensions */,
+				2713E5821A1A5FDD00493F05 /* Sounds */,
 				2768048419FDDC7E0019629D /* Unbuy the Hurt-Bridging-Header.h */,
 				2768046019FDDB090019629D /* Supporting Files */,
 			);
@@ -319,6 +333,8 @@
 				274697E01A006D5D00D38950 /* ResultsViewController.storyboard in Resources */,
 				27344FD11A0159DC00CD4F9B /* Images.xcassets in Resources */,
 				274697E41A008E9100D38950 /* NegativeResults.xib in Resources */,
+				2713E5801A1A5FD800493F05 /* notTested.wav in Resources */,
+				2713E5811A1A5FD800493F05 /* tested.wav in Resources */,
 				2792ECF31A014ADD006D7D3B /* Info.storyboard in Resources */,
 				2768046819FDDB090019629D /* Main.storyboard in Resources */,
 				274697E61A008E9900D38950 /* NeutralResults.xib in Resources */,
