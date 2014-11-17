@@ -38,15 +38,15 @@ class BarcodeHandler: NSObject, BarcodeHandlerDelegate {
     }
     
     private func lookupBarcodeInformation(code: String) {
-        if api == .DigitEyes {
-            let apiHandler = DigitEyesAPIHandler()
-            apiHandler.delegate = self
-            apiHandler.lookupBarcode(code)
-        } else {
+//        if api == .DigitEyes {
+//            let apiHandler = DigitEyesAPIHandler()
+//            apiHandler.delegate = self
+//            apiHandler.lookupBarcode(code)
+//        } else {
             let apiHandler = OutPanAPIHandler()
             apiHandler.delegate = self
             apiHandler.lookupBarcode(code)
-        }
+//        }
 
     }
     

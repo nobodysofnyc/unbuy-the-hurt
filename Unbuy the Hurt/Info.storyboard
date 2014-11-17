@@ -328,37 +328,38 @@
                                                     <constraint firstItem="rvF-Ce-Jt4" firstAttribute="top" secondItem="xQz-vM-FM0" secondAttribute="bottom" constant="8" id="vti-Em-ago"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qAV-X2-mC8" userLabel="Footer">
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qAV-X2-mC8" userLabel="Footer">
                                                 <rect key="frame" x="0.0" y="400" width="600" height="112"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRn-Bb-43v">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRn-Bb-43v">
                                                         <rect key="frame" x="23" y="21" width="554" height="32"/>
                                                         <attributedString key="attributedText">
-                                                            <fragment content="Disclaimer:">
+                                                            <fragment content="Note:">
                                                                 <attributes>
                                                                     <color key="NSColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
-                                                                    <font key="NSFont" size="11" name="AvenirNext-DemiBold"/>
+                                                                    <font key="NSFont" size="12" name="AvenirNext-DemiBold"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                                 </attributes>
                                                             </fragment>
                                                             <fragment content=" ">
                                                                 <attributes>
                                                                     <color key="NSColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
-                                                                    <font key="NSFont" size="12" name="AvenirNext-Regular"/>
+                                                                    <font key="NSFont" size="11" name="AvenirNext-Regular"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                                 </attributes>
                                                             </fragment>
-                                                            <fragment content="This app is only intended as a guide. Continue to do your own research to be an informed customer.">
+                                                            <fragment>
+                                                                <string key="content">This app is only intended as a guide. We do our best to ensure the information is correct, but we urge you to continue to do your own research to be an informed consumer.</string>
                                                                 <attributes>
                                                                     <color key="NSColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
-                                                                    <font key="NSFont" size="11" name="AvenirNext-Regular"/>
+                                                                    <font key="NSFont" size="12" name="AvenirNext-Regular"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmR-By-WZH">
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmR-By-WZH">
                                                         <rect key="frame" x="233" y="67" width="134" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="LtC-kO-rS8"/>
@@ -373,7 +374,7 @@
                                                             <action selector="toggleAPIButtonTapped:" destination="YM8-ct-8nQ" eventType="touchUpInside" id="eUw-tp-oly"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="version" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6F-0V-jRF">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="version" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6F-0V-jRF">
                                                         <rect key="frame" x="23" y="71" width="37" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="flF-T3-SHD"/>
