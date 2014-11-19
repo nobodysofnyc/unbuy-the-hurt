@@ -41,4 +41,25 @@ extension UIColor {
     class func uth_darkGray() -> UIColor {
         return UIColor(red: 158/255.0, green: 162/255.0, blue: 163/255.0, alpha: 1.0)
     }
+    
+    class func uth_cautionColor() -> UIColor {
+        return UIColor(red: 235/255.0, green: 170/255.0, blue: 58/255.0, alpha: 1.0)
+    }
+    
+    class func uth_redTextColor() -> UIColor {
+        return UIColor(red: 145/255.0, green: 11/255.0, blue: 16/255.0, alpha: 1.0)
+    }
+    
+    class func uth_greenTextColor() -> UIColor {
+        return UIColor(red: 92/255.0, green: 134/255.0, blue: 12/255.0, alpha: 1.0)
+    }
+    
+    class func uth_grayTextColor() -> UIColor {
+        return UIColor(red: 106/255.0, green: 110/255.0, blue: 112/255.0, alpha: 1.0)
+    }
+    
+    class func uth_yellowTextColor() -> UIColor {
+        return UIColor(red: 138/255.0, green: 98/255.0, blue: 33/255.0, alpha: 1.0)
+    }
+
 }

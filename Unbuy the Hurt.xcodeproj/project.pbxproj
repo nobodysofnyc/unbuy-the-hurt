@@ -22,9 +22,6 @@
 		273A419019FED42400D654F2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 273A418E19FED42300D654F2 /* Fabric.framework */; };
 		274697DD1A006A4100D38950 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274697DB1A006A4100D38950 /* ResultsViewController.swift */; };
 		274697E01A006D5D00D38950 /* ResultsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 274697DF1A006D5D00D38950 /* ResultsViewController.storyboard */; };
-		274697E21A00737400D38950 /* PositiveResults.xib in Resources */ = {isa = PBXBuildFile; fileRef = 274697E11A00737400D38950 /* PositiveResults.xib */; };
-		274697E41A008E9100D38950 /* NegativeResults.xib in Resources */ = {isa = PBXBuildFile; fileRef = 274697E31A008E9100D38950 /* NegativeResults.xib */; };
-		274697E61A008E9900D38950 /* NeutralResults.xib in Resources */ = {isa = PBXBuildFile; fileRef = 274697E51A008E9900D38950 /* NeutralResults.xib */; };
 		274697E81A0094FB00D38950 /* NewScanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274697E71A0094FB00D38950 /* NewScanButton.swift */; };
 		274697EA1A00970800D38950 /* IconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274697E91A00970800D38950 /* IconImageView.swift */; };
 		2768046319FDDB090019629D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768046219FDDB090019629D /* AppDelegate.swift */; };
@@ -39,6 +36,8 @@
 		2792ECF31A014ADD006D7D3B /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2792ECF21A014ADD006D7D3B /* Info.storyboard */; };
 		2792ECF51A014D88006D7D3B /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2792ECF41A014D88006D7D3B /* UIViewController.swift */; };
 		27C424FA1A0B1199003005A3 /* iOSVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C424F91A0B1199003005A3 /* iOSVersion.swift */; };
+		27C93E471A1D402100E666C1 /* IconImageViewYellow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C93E461A1D402100E666C1 /* IconImageViewYellow.swift */; };
+		27C93E491A1D411700E666C1 /* Results.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27C93E481A1D411700E666C1 /* Results.xib */; };
 		27F4A45319FE9AAC00084411 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F4A45219FE9AAC00084411 /* HTMLParser.swift */; };
 		A67E5484B649B78B8E25E1A5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F19FBEDFF33910643277D0C /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -70,9 +69,6 @@
 		273A418E19FED42300D654F2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		274697DB1A006A4100D38950 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		274697DF1A006D5D00D38950 /* ResultsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ResultsViewController.storyboard; sourceTree = "<group>"; };
-		274697E11A00737400D38950 /* PositiveResults.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PositiveResults.xib; sourceTree = "<group>"; };
-		274697E31A008E9100D38950 /* NegativeResults.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NegativeResults.xib; sourceTree = "<group>"; };
-		274697E51A008E9900D38950 /* NeutralResults.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NeutralResults.xib; sourceTree = "<group>"; };
 		274697E71A0094FB00D38950 /* NewScanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewScanButton.swift; sourceTree = "<group>"; };
 		274697E91A00970800D38950 /* IconImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconImageView.swift; sourceTree = "<group>"; };
 		2768045D19FDDB090019629D /* Unbuy the Hurt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unbuy the Hurt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +88,8 @@
 		2792ECF21A014ADD006D7D3B /* Info.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
 		2792ECF41A014D88006D7D3B /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		27C424F91A0B1199003005A3 /* iOSVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSVersion.swift; sourceTree = "<group>"; };
+		27C93E461A1D402100E666C1 /* IconImageViewYellow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconImageViewYellow.swift; sourceTree = "<group>"; };
+		27C93E481A1D411700E666C1 /* Results.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Results.xib; sourceTree = "<group>"; };
 		27F4A45219FE9AAC00084411 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
 		4F19FBEDFF33910643277D0C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AF91147CEDB5174B6CE479A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,13 +132,12 @@
 				2768046619FDDB090019629D /* Main.storyboard */,
 				274697DF1A006D5D00D38950 /* ResultsViewController.storyboard */,
 				2792ECF21A014ADD006D7D3B /* Info.storyboard */,
-				274697E11A00737400D38950 /* PositiveResults.xib */,
-				274697E31A008E9100D38950 /* NegativeResults.xib */,
-				274697E51A008E9900D38950 /* NeutralResults.xib */,
+				27C93E481A1D411700E666C1 /* Results.xib */,
 				274697E71A0094FB00D38950 /* NewScanButton.swift */,
 				274697E91A00970800D38950 /* IconImageView.swift */,
 				2792ECE91A0139D8006D7D3B /* IconImageViewRed.swift */,
 				2792ECEB1A013A54006D7D3B /* IconImageViewGreen.swift */,
+				27C93E461A1D402100E666C1 /* IconImageViewYellow.swift */,
 				2792ECED1A013A79006D7D3B /* IconImageViewGray.swift */,
 				2787870E1A034BDD0089D7CA /* CellView.swift */,
 				2787870C1A034BBA0089D7CA /* CellButton.swift */,
@@ -332,13 +329,11 @@
 			files = (
 				274697E01A006D5D00D38950 /* ResultsViewController.storyboard in Resources */,
 				27344FD11A0159DC00CD4F9B /* Images.xcassets in Resources */,
-				274697E41A008E9100D38950 /* NegativeResults.xib in Resources */,
 				2713E5801A1A5FD800493F05 /* notTested.wav in Resources */,
 				2713E5811A1A5FD800493F05 /* tested.wav in Resources */,
 				2792ECF31A014ADD006D7D3B /* Info.storyboard in Resources */,
 				2768046819FDDB090019629D /* Main.storyboard in Resources */,
-				274697E61A008E9900D38950 /* NeutralResults.xib in Resources */,
-				274697E21A00737400D38950 /* PositiveResults.xib in Resources */,
+				27C93E491A1D411700E666C1 /* Results.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				274697DD1A006A4100D38950 /* ResultsViewController.swift in Sources */,
+				27C93E471A1D402100E666C1 /* IconImageViewYellow.swift in Sources */,
 				2792ECEA1A0139D8006D7D3B /* IconImageViewRed.swift in Sources */,
 				2792ECF51A014D88006D7D3B /* UIViewController.swift in Sources */,
 				2768046519FDDB090019629D /* ViewController.swift in Sources */,

@@ -19,6 +19,7 @@ enum ResultsState {
     case Positive
     case Negative
     case Neutral
+    case Caution
     case Default
 }
 
@@ -218,28 +219,19 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
             return UIColor.uth_lightGreen()
         case .Neutral:
             return UIColor.uth_lightGray()
+        case .Caution:
+            return UIColor.uth_cautionColor()
         case .Default:
             return UIColor.uth_lightGray()  
         }
     }
     
     private func viewForState(state: ResultsState) -> ResultsView {
-        var nibName = ""
-        switch state {
-        case .Positive:
-            nibName = "PositiveResults"
-        case .Negative:
-            nibName = "NegativeResults"
-        case .Neutral:
-            nibName = "NeutralResults"
-        case .Default:
-            nibName = "DefaultResults"
-        }
-        
-        let views: NSArray = NSBundle.mainBundle().loadNibNamed(nibName, owner: self, options: nil)
+        let views: NSArray = NSBundle.mainBundle().loadNibNamed("Results", owner: self, options: nil)
         let view: UIView? = views[0] as? UIView
         
         if let resultsView: ResultsView = view as? ResultsView {
+            resultsView.setState(state)
             resultsView.delegate = self
             resultsView.frame = self.view.bounds
             return resultsView

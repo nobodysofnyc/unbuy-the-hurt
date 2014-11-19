@@ -169,7 +169,7 @@ InfoControllerDelegate {
     // MARK: Delegate - HTMLParserDelegate
     
     func didFinishParsingHTML(data: Dictionary<String, AnyObject>) {
-        var tested = false
+        var tested: ResultsState = .Negative
         var unsterilizedCompanyName: String?
         var unsterilizedBrandName: String?
         let companies = data["companies"] as Array<String>
@@ -186,21 +186,33 @@ InfoControllerDelegate {
             companyName = company.sterilize()
             unsterilizedCompanyName = company
         }
+        
+        if companyName == "" && brandName == "" {
+            showResults(.Neutral, text: nil)
+            return
+        }
 
+        
         for i in 0...(brands.count - 1) {
             let name: String = brands[i] as String
+            if brandName.rangeOfString(name) != nil || companyName.rangeOfString(name) != nil {
+                tested = .Caution
+            }
             if brandName == name || companyName == name {
-                tested = true
+                tested = .Positive
                 break
             }
         }
         
-        if !tested {
+        if tested != .Positive {
             for i in 0...(companies.count - 1) {
                 let name: String = companies[i] as String
                 companyName = someSortOfCompanyNameFilter(companyName)
+                if brandName.rangeOfString(name) != nil || companyName.rangeOfString(name) != nil {
+                    tested = .Caution
+                }
                 if brandName == name || companyName == name {
-                    tested = true
+                    tested = .Positive
                     break
                 }
             }
@@ -213,11 +225,7 @@ InfoControllerDelegate {
             displayName = name
         }
         
-        if tested {
-            showResults(.Positive, text: displayName)
-        } else {
-            showResults(.Negative, text: displayName)
-        }
+        showResults(tested, text: displayName)
     }
     
     
