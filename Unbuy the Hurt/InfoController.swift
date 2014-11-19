@@ -139,6 +139,10 @@ class InfoController: UIViewController, MFMailComposeViewControllerDelegate, UIN
         openSafariWithURL("http://veganrabbit.com/list-of-companies-that-do-test-on-animals/")
     }
     
+    @IBAction func beagleButtonTapped(sender: AnyObject) {
+        openSafariWithURL("http://www.beaglefreedomproject.org")
+    }
+    
     @IBAction func toggleAPIButtonTapped(sender: UIButton!) {
         setCurrentAPI(_getCurrentAPIPreference() == "Outpan" ? "Digit Eyes" : "Outpan")
     }
@@ -162,8 +166,7 @@ class InfoController: UIViewController, MFMailComposeViewControllerDelegate, UIN
     private func showEmailForm() {
         var mailer = MFMailComposeViewController()
         mailer.mailComposeDelegate = self
-        mailer.setSubject("Subject")
-        mailer.setToRecipients(["mark.moll@gmail.com"])
+        mailer.setToRecipients(["unbuythehurt@gmail.com"])
         
         presentViewController(mailer, animated: true, completion: nil)
     }
