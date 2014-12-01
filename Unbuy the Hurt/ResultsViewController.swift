@@ -151,21 +151,25 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
                 }
             })
             
-            if state == .Positive {
-                // play tested.wav
-                let filePath = NSBundle.mainBundle().pathForResource("tested", ofType: "wav")
-                let fileURL = NSURL(fileURLWithPath: filePath!)
-                var soundID:SystemSoundID = 0
-                AudioServicesCreateSystemSoundID(fileURL, &soundID)
-                AudioServicesPlaySystemSound(soundID)
-            } else if state == .Negative {
-                let filePath = NSBundle.mainBundle().pathForResource("notTested", ofType: "wav")
-                let fileURL = NSURL(fileURLWithPath: filePath!)
-                var soundID:SystemSoundID = 0
-                AudioServicesCreateSystemSoundID(fileURL, &soundID)
-                AudioServicesPlaySystemSound(soundID)
-            }
+            playSoundForState(state)
         }
+    }
+    
+    func playSoundForState(state: ResultsState) {
+        if state == .Positive {
+            let filePath = NSBundle.mainBundle().pathForResource("tested", ofType: "wav")
+            let fileURL = NSURL(fileURLWithPath: filePath!)
+            var soundID:SystemSoundID = 0
+            AudioServicesCreateSystemSoundID(fileURL, &soundID)
+            AudioServicesPlaySystemSound(soundID)
+        } else if state == .Negative {
+            let filePath = NSBundle.mainBundle().pathForResource("notTested", ofType: "wav")
+            let fileURL = NSURL(fileURLWithPath: filePath!)
+            var soundID:SystemSoundID = 0
+            AudioServicesCreateSystemSoundID(fileURL, &soundID)
+            AudioServicesPlaySystemSound(soundID)
+        }
+
     }
     
     func didTapNewScanButton() {
@@ -239,9 +243,6 @@ class ResultsViewController: UIViewController, ResultsViewDelegate {
         return ResultsView()
     }
     
-    private func classname(node: AnyObject!) -> String {
-        return _stdlib_getTypeName(node)
-    }
     
     // MARK: Timer
     
