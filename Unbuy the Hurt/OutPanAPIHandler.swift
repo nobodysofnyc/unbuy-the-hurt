@@ -12,8 +12,9 @@ class OutPanAPIHandler: NSObject {
 
     func lookupBarcode(code: String) {
         
-        let url = "http://www.outpan.com/api/get_product.php?barcode=\(code)"
-        
+        let apiKey = "4f912541e005a516574433fb74c66a1e"
+        let url = "http://www.outpan.com/api/get-product.php?apikey=\(apiKey)&barcode=\(code)"
+        println(url)
         let manager = AFHTTPRequestOperationManager()
         manager.GET(url, parameters: nil, success: { (request: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
             
