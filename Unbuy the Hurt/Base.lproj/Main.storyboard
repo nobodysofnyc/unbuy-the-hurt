@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -60,8 +62,169 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="niK-MJ-G7K">
+            <objects>
+                <viewController id="1g7-Je-xAs" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gzt-yS-Ttb"/>
+                        <viewControllerLayoutGuide type="bottom" id="wK7-Wd-qfB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GGJ-bf-Ghp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="disclaimer_logo" translatesAutoresizingMaskIntoConstraints="NO" id="vFI-DX-AbF">
+                                <rect key="frame" x="242" y="36" width="117" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="Wfj-8d-0Ox"/>
+                                    <constraint firstAttribute="width" constant="117" id="mJd-kF-lkJ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Wfj-8d-0Ox"/>
+                                        <exclude reference="mJd-kF-lkJ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Wfj-8d-0Ox"/>
+                                        <include reference="mJd-kF-lkJ"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disclaimer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFw-dE-t2c">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="356" id="BZZ-OS-ZM9"/>
+                                    <constraint firstAttribute="height" constant="21" id="KeB-AU-48f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
+                                <color key="textColor" red="0.2470588235" green="0.36078431370000003" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="BZZ-OS-ZM9"/>
+                                        <exclude reference="KeB-AU-48f"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="BZZ-OS-ZM9"/>
+                                        <include reference="KeB-AU-48f"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ur0-6S-WV3">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <string key="text">This app is only intended as a guide. The information is accurate to the best of our knowledge, but practices change at companies often and this could result in misinformation. By using this app you agree that buying a product or not buying a product based on this information is ultimately up to you. We also strongly suggest you do your own research and double and triple check before making a final purchase decision. If you find an error and can validate it, please let us know and we will update the guide.</string>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                <color key="textColor" red="0.2470588235" green="0.36078431370000003" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4QO-JT-06M">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Agree" width="368" id="na7-ut-SiI"/>
+                                </items>
+                                <color key="tintColor" red="0.24705882352941178" green="0.36078431372549019" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ur0-6S-WV3" firstAttribute="top" secondItem="CFw-dE-t2c" secondAttribute="bottom" constant="8" id="0rl-2y-ROA"/>
+                            <constraint firstItem="4QO-JT-06M" firstAttribute="top" secondItem="ur0-6S-WV3" secondAttribute="bottom" constant="388" id="1nr-hT-kz8"/>
+                            <constraint firstItem="vFI-DX-AbF" firstAttribute="top" secondItem="gzt-yS-Ttb" secondAttribute="bottom" constant="32" id="2rm-BW-pEN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ur0-6S-WV3" secondAttribute="trailing" constant="6" id="Auu-7I-V1f"/>
+                            <constraint firstItem="CFw-dE-t2c" firstAttribute="leading" secondItem="GGJ-bf-Ghp" secondAttribute="leadingMargin" constant="6" id="BUr-yp-0fA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CFw-dE-t2c" secondAttribute="trailing" constant="6" id="Foh-M8-8M9"/>
+                            <constraint firstAttribute="centerX" secondItem="CFw-dE-t2c" secondAttribute="centerX" id="UCl-SX-0jH"/>
+                            <constraint firstItem="4QO-JT-06M" firstAttribute="leading" secondItem="GGJ-bf-Ghp" secondAttribute="leadingMargin" constant="-16" id="Ur9-Q0-rm6"/>
+                            <constraint firstItem="ur0-6S-WV3" firstAttribute="leading" secondItem="GGJ-bf-Ghp" secondAttribute="leadingMargin" constant="6" id="amM-we-Fiy"/>
+                            <constraint firstAttribute="centerX" secondItem="ur0-6S-WV3" secondAttribute="centerX" id="cX4-pa-NUf"/>
+                            <constraint firstItem="wK7-Wd-qfB" firstAttribute="top" secondItem="4QO-JT-06M" secondAttribute="bottom" id="caU-jZ-K1s"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4QO-JT-06M" secondAttribute="trailing" constant="-16" id="fCl-ie-QZT"/>
+                            <constraint firstItem="CFw-dE-t2c" firstAttribute="top" secondItem="vFI-DX-AbF" secondAttribute="bottom" constant="36" id="hvR-E3-ZIe"/>
+                            <constraint firstAttribute="centerX" secondItem="vFI-DX-AbF" secondAttribute="centerX" id="tXp-Ma-mYo"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="CFw-dE-t2c"/>
+                                <exclude reference="ur0-6S-WV3"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="BUr-yp-0fA"/>
+                                <exclude reference="Foh-M8-8M9"/>
+                                <exclude reference="UCl-SX-0jH"/>
+                                <exclude reference="hvR-E3-ZIe"/>
+                                <exclude reference="2rm-BW-pEN"/>
+                                <exclude reference="tXp-Ma-mYo"/>
+                                <exclude reference="0rl-2y-ROA"/>
+                                <exclude reference="Auu-7I-V1f"/>
+                                <exclude reference="amM-we-Fiy"/>
+                                <exclude reference="cX4-pa-NUf"/>
+                                <exclude reference="1nr-hT-kz8"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="CFw-dE-t2c"/>
+                                <include reference="ur0-6S-WV3"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="BUr-yp-0fA"/>
+                                <include reference="Foh-M8-8M9"/>
+                                <include reference="UCl-SX-0jH"/>
+                                <include reference="hvR-E3-ZIe"/>
+                                <include reference="2rm-BW-pEN"/>
+                                <include reference="tXp-Ma-mYo"/>
+                                <include reference="0rl-2y-ROA"/>
+                                <include reference="Auu-7I-V1f"/>
+                                <include reference="amM-we-Fiy"/>
+                                <include reference="cX4-pa-NUf"/>
+                                <exclude reference="1nr-hT-kz8"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b5d-cw-b9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1068" y="331.5"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="7Vu-gt-G6Y">
+            <objects>
+                <tableViewController id="Cfb-qD-hSm" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WXy-CN-GUt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="AkE-Vy-t0P">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ECT-ng-QRT">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ECT-ng-QRT" id="NRy-fv-vlS">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Cfb-qD-hSm" id="wYB-Wg-Gqv"/>
+                            <outlet property="delegate" destination="Cfb-qD-hSm" id="49J-LG-wfU"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Bp-mA-1Y4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1684" y="342"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="disclaimer_logo" width="117" height="59"/>
         <image name="info" width="33" height="33"/>
     </resources>
 </document>
